@@ -1,0 +1,63 @@
+<div class="ddl-comic-plug">
+    <div class="ddl-comic-wrap" id="ddl-comic-wrap">
+        <div class="ddl-comic-inner">
+            <div class="ddl-comic-main" id="ddl-comic-main">
+                <div class="ddl-comic-top">
+                    <div class="ddl-comic-logo"><span>C</span>omi<span>c</span>++ </div>
+                    <div class="ddl-comic-title">
+                        <span id="ddl-comic-title" data-href="{{comic.home}}" title="返回 {{comic.title}} 目录">{{comic.title}}</span> - <span id="ddl-comic-subtitle">{{comic.chapter}}</span>
+                    </div>
+                    <span id="ddl-comic-exit-btn" class="iconfont icon-exit" title="退出"></span>
+                </div>
+                {{each list as item,index}}
+                    <div class="ddl-comic-image-box" id="ddl-comic-item-{{index}}" data-url="{{item.url}}" data-type="{{item.type}}" data-status="{{item.status}}" data-mode="{{item.mode}}" style="{{space}}">
+                        <div class="ddl-loading-spinner" style="margin-left: -55px;font-size: 60px;">
+                            <div class="rect1"></div>
+                            <div class="rect2"></div>
+                            <div class="rect3"></div>
+                            <div class="rect4"></div>
+                            <div class="rect5"></div>
+                        </div>
+                        <div class="ddl-logo">Comic++</div>
+                    </div>
+                {{/each}}
+                <div class="ddl-comic-bottom">
+                    <p class="ddl-comic-over-tips">已是最后一话</p>
+                    <p class="ddl-comic-next-tips"><a href="">点击进入下一话<span class="iconfont icon-fanhui2"></span></a></p>
+                </div>
+            </div>
+            <div id="ddl-comic-page">
+                <span id="ddl-comic-current-page">1</span><em>/</em><span id="ddl-comic-total-page">1</span>
+            </div>
+        </div>
+
+
+
+        <input type="hidden" id="ddl-comic-type" value="{{type}}">
+        <input type="hidden" id="ddl-comic-total" value="{{total}}">
+    </div>
+
+    <div id="ddl-comic-menu">
+        <ul class="ddl-comic-menu-inner">
+            <li class="ddl-comic-menu-btn {{comic.prev == undefined ? 'hide': ''}}"><span class="iconfont icon-up" id="ddl-comic-prev-btn" data-href="{{comic.prev}}"></span></li>
+            <li class="ddl-comic-menu-btn {{comic.next == undefined ? 'hide': ''}}"><span class="iconfont icon-down" id="ddl-comic-next-btn" data-href="{{comic.next}}"></span></li>
+            <li class="ddl-comic-menu-btn"><span class="iconfont icon-on-light" id="ddl-comic-light-btn" data-status="on"></span></li>
+            {{if comic.iframe == true}}
+            <li class="ddl-comic-menu-btn"><span class="iconfont icon-favorfill" id="ddl-comic-favor-btn" data-load="0" data-select="" data-index-link="{{comic.home}}" ></span></li>
+            <li class="ddl-comic-menu-btn">
+                <span class="iconfont icon-map" id="ddl-comic-catalog-switch" data-load="0" data-status="0"></span>
+                <i class="ddl-comic-right-icon"></i>
+                <div class="ddl-comic-catalog" id="ddl-comic-catalog"></div>
+            </li>
+            {{/if}}
+            <li class="ddl-comic-menu-btn"><span class="iconfont icon-shang" id="ddl-comic-play-btn"></span></li>
+        </ul>
+    </div>
+
+    <div id="ddl-comic-launch">
+        <span class="iconfont icon-comic"></span>
+    </div>
+
+    <div class="tips-box" id="ddl-tips-box"></div>
+    <div class="floating-box" id="ddl-floating-box"></div>
+</div>

@@ -1,0 +1,9 @@
+<h3>{{title | setTitle}}<i></i></h3>
+<div class="ddl-comic-catalog-main-wrap">
+    <div class="ddl-comic-catalog-main ddl-scrollbar">
+        {{each catalog as item,index}}
+            <span data-href="{{item.link}}" class="{{item.link,type | setCatalogCurrentPage}}">「{{sort == 'desc' ? total - index : index + 1}}」{{item.title}}</span>
+        {{/each}}
+    </div>
+</div>
+<p>共<i class="num">{{total}}</i>话<i class="ddl-icon-up"></i><em id="ddl-comic-catalog-sort" data-sort="{{sort}}" data-type="{{type}}">{{sort == 'desc' ? '倒序' : '正序'}}</em></p>

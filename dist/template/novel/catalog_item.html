@@ -1,0 +1,12 @@
+{{each catalog as items}}
+    <div class="ddl-novel-catalog-item">
+        <div class="ddl-catalog-subtitle-btn"><p class="ddl-text">{{items.title}}<span class="iconfont icon-fanhui3"></span></p></div>
+        <ul style="display: none;">
+            {{each items.list as item}}
+                {{if item.title != '' && item.title != undefined && item.title != null}}
+                    <li><a class="ddl-text" href="{{item.link}}">{{item.title}}</a></li>
+                {{/if}}
+            {{/each}}
+        </ul>
+    </div>
+{{/each}}

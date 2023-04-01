@@ -1,0 +1,3 @@
+{{each catalog as item,index}}
+    <span data-href="{{item.link}}"  class="{{item.link,type | setCatalogCurrentPage}}">「{{sort == 'desc' ? total - index : index + 1}}」{{item.title}}</span>
+{{/each}}

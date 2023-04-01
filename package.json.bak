@@ -1,0 +1,26 @@
+{
+  "name": "Comic++",
+  "version": "1.0.0",
+  "description": "重新定义漫画与小说网站的样式布局，改变你的阅读方式。",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "author": "keepsilent",
+  "license": "ISC",
+  "devDependencies": {
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-htmlmin": "^4.0.0",
+    "gulp-livereload": "^3.8.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-notify": "^3.2.0",
+    "gulp-tmod": "^2.0.3",
+    "gulp-uglify": "^3.0.0",
+    "tmodjs": "^1.0.4"
+  },
+  "dependencies": {}
+}

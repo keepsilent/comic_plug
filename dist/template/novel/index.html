@@ -1,0 +1,165 @@
+<div class="ddl-novel-wrap" id="ddl-novel-wrap">
+    <div class="ddl-novel-inner" id="ddl-novel-inner">
+        <div class="ddl-novel-header">
+            <div class="ddl-novel-title ddl-text" id="ddl-novel-title">{{book.chapter}}</div>
+            <div class="ddl-novel-info" id="ddl-novel-info">
+                <span class="ddl-text">小说: <em id="ddl-novel-book-name">{{book.title}}</em></span>
+                <span class="ddl-text">字数: <em id="ddl-novel-font-num">{{book.num}}</em> 字</span>
+                <span class="ddl-novel-loaded-box" style="display: none;" >
+                    <span class="ddl-text">作者: <em id="ddl-novel-author">--</em></span>
+                    <span class="ddl-text">状态: <em id="ddl-novel-status">--</em></span>
+                </span>
+                <!--<span class="ddl-text">更新时间: <em id="ddl-novel-time">2019.12.10 20:30</em></span>-->
+            </div>
+        </div>
+        <div class="ddl-novel-content ddl-text" id="ddl-novel-content"></div>
+    </div>
+
+    <!-- 底部菜单 -->
+    <div class="ddl-novel-footer-menu" id="ddl-novel-footer-menu">
+        <ul>
+            <li class="ddl-novel-prev-btn">
+                <a class="ddl-text" href="{{book.prev}}">上一章</a>
+            </li>
+            <li class="ddl-novel-catalog-btn">
+                <span class="ddl-left-line"></span>
+                <a class="ddl-text" href="{{book.catalog}}" target="_blank">目录</a>
+                <span class="ddl-right-line"></span>
+            </li>
+            <li class="ddl-novel-next-btn">
+                <a class="ddl-text" href="{{book.next}}">下一章</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 左侧菜单 -->
+    <div class="ddl-novel-left-menu" id="ddl-novel-left-menu">
+        <ul>
+            <li class="ddl-novel-catalog-btn ddl-setting-btn" data-type="catalog-box"  data-value="1">
+                <div>
+                    <p class="iconfont icon-fenleimulu"></p>
+                    <p class="ddl-text">目录</p>
+                </div>
+            </li>
+            <li class="ddl-novel-setting-btn ddl-setting-btn" data-type="setting-box"  data-value="1">
+                <div>
+                    <p class="iconfont icon-setup_icon"></p>
+                    <p class="ddl-text">设置</p>
+                </div>
+            </li>
+            <li class="ddl-novel-book-btn" >
+                <a href="{{book.catalog}}" target="_blank">
+                    <p class="iconfont icon-shu2"></p>
+                    <p class="ddl-text">书页</p>
+                </a>
+            </li>
+            <li class="ddl-novel-favoer-btn" id="ddl-comic-favor-box">
+                <a id="ddl-comic-favor-btn" data-load="0" data-select href="javascript:void(0);">
+                    <p class="iconfont icon-favor"></p>
+                    <p class="ddl-text">追书</p>
+                </a>
+            </li>
+            <li class="ddl-novel-prev-btn">
+                <a href="{{book.prev}}">
+                    <p class="iconfont icon-up"></p>
+                    <p class="ddl-text">上章</p>
+                </a>
+            </li>
+            <li class="ddl-novel-next-btn">
+                <a href="{{book.next}}">
+                    <p class="iconfont icon-down"></p>
+                    <p class="ddl-text">下章</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- 右侧菜单 -->
+    <div class="ddl-novel-right-menu" id="ddl-novel-right-menu">
+        <ul>
+            <li class="ddl-novel-play-btn">
+                <p class="iconfont icon-shang1"></p>
+                <p class="ddl-text">打赏</p>
+            </li>
+            <li class="ddl-novel-appraise-btn">
+                <p class="iconfont icon-haoping4"></p>
+                <p class="ddl-text">好评</p>
+            </li>
+            <li class="ddl-novel-back-btn">
+                <p class="iconfont icon-xiangshang"></p>
+            </li>
+        </ul>
+    </div>
+    <!-- 目录菜单 -->
+    <div class="ddl-novel-catalog" >
+        <div class="ddl-novel-catalog-inner">
+            <div class="ddl-novel-catalog-header">
+                <span class="catalog-title ddl-text">目录</span>
+                <span class="iconfont icon-close catalog-close-btn ddl-setting-btn" title="关闭" data-type="catalog-box" data-value="0"></span>
+            </div>
+            <div class="ddl-novel-catalog-main">
+                <div class="ddl-loading-spinner" style="margin-left: -55px;font-size: 60px;">
+                    <div class="rect1"></div>
+                    <div class="rect2"></div>
+                    <div class="rect3"></div>
+                    <div class="rect4"></div>
+                    <div class="rect5"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 设置菜单 -->
+    <div class="ddl-novel-setting">
+        <div class="ddl-novel-setting-inner">
+            <div class="ddl-novel-setting-header">
+                <span class="setting-title ddl-text">设置</span>
+                <span class="iconfont icon-close setting-close-btn ddl-setting-btn" title="关闭" data-type="setting-box" data-value="0"></span>
+            </div>
+            <div class="ddl-novel-setting-main">
+                <ul>
+                    <li>
+                        <label class="ddl-text">使用语言</label>
+                        <span class="ddl-setting-btn" data-type="langue" data-value="chinese">简体</span>
+                        <span class="ddl-setting-btn" data-type="langue" data-value="traditional">繁體</span>
+                    </li>
+                    <li>
+                        <label class="ddl-text">正文字体</label>
+                        <span class="ddl-setting-btn ddl-text" data-type="font-family" data-value="1">雅黑</span>
+                        <span class="ddl-setting-btn ddl-text" data-type="font-family" data-value="2">宋体</span>
+                        <span class="ddl-setting-btn ddl-text" data-type="font-family" data-value="3">楷书</span>
+                    </li>
+                    <li>
+                        <label class="ddl-text">字体大小</label>
+                        <div class="ddl-novel-set-box">
+                            <em class="ddl-setting-btn iconfont icon-yueduye_zitijianxiao" data-type="font-size" data-value="minus"></em>
+                            <em class="ddl-font-size-text">18</em>
+                            <em class="ddl-setting-btn iconfont icon-yueduye_zitizengda" data-type="font-size" data-value="plus"></em>
+                            <i></i>
+                            <i></i>
+                        </div>
+                    </li>
+                    <li>
+                        <label class="ddl-text">页面宽度</label>
+                        <div class="ddl-novel-set-box">
+                            <em class="ddl-setting-btn iconfont icon-yueduye_yemiansuoxiao" data-type="page-width" data-value="minus"></em>
+                            <em class="ddl-page-width-text">800</em>
+                            <em class="ddl-setting-btn iconfont icon-yueduye_yemianzengda" data-type="page-width" data-value="plus"></em>
+                            <i></i>
+                            <i></i>
+                        </div>
+                    </li>
+                </ul>
+                <div class="ddl-save-box">
+                    <span class="ddl-setting-btn ddl-text" data-type="save" data-value="1">保存</span>
+                    <span class="ddl-setting-btn ddl-text" data-type="setting-box" data-value="0">取消</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ddl-comic-launch">
+    <span class="iconfont icon-comic"></span>
+</div>
+
+<div class="tips-box" id="ddl-tips-box"></div>
+<div class="floating-box" id="ddl-floating-box"></div>

@@ -1587,7 +1587,7 @@ var ddlComic = (function () {
         },
         rules: [
             { regular: /^(http|https):\/\/www\.dmzj[0-9]?\.com\/view\/[a-zA-Z0-9]+\/[0-9]+\.html(#@page=[0-9]+)?/, type: 'dmzj'},
-            { regular: /^(http|https):\/\/manhua\.dmzj[0-9]?\.com\/[a-zA-Z0-9]+\/[0-9]+\.shtml(#@page=[0-9]+)?/, type: 'manhua_dmzj'},
+            { regular: /^(http|https):\/\/manhua\.[a-z0-9]?dmzj[0-9]?\.com\/[a-zA-Z0-9]+\/[0-9]+\.shtml(#@page=[0-9]+)?/, type: 'manhua_dmzj'},
 
             { regular: /^(http|https):\/\/[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.com\/comiclist\/[0-9]+\/[0-9]+\/[0-9]+\.htm$/, type: 'ikkdm'},
             { regular: /^(http|https):\/\/[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.com\/comiclist\/[0-9]+\/[0-9]+\/[0-9]+\.htm[\?a-zA-Z0-9=]+$/, type: 'ikkdm'},
@@ -1627,11 +1627,15 @@ var ddlComic = (function () {
      * @method init
      */
     var init = function () {
+
        var data = onWhiteList();
        //console.log('data',data);
         if(!data.status) { //是否白名单
+            console.log('not is white');
             return false;
         }
+
+        console.log('not is white');
 
         cookie.get('setting',function (data) {
             var setting = data.setting || {};
@@ -3393,7 +3397,7 @@ var ddlUnit = (function () {
             'manhua_dmzj': { title: '动漫之家',url: 'https://manhua.dmzj.com/',describe: '动漫之家为您提供最新更新的在线漫画、原创漫画、好看的漫画，最新最快的在线漫画更新、漫画大全尽在动漫之家漫画网。',type: 'comic'},
             'u17': { title: '有妖气',url: 'http://www.u17.com/',describe: '中国唯一且最大的纯原创漫画网站，数千名中国原创漫画作者汇聚于此，在线连载最热门的全新漫画作品，为中国原创漫画作者提供最肥沃的漫画创作土壤。',type: 'comic'},
             'sfacg': { title: 'SF动漫',url: 'https://manhua.sfacg.com/',describe: 'SF漫画提供海量漫画,更新最快在线漫画欣赏、无弹窗清爽阅读环境，老牌漫画网站一直陪伴在你身旁。',type: 'comic'},
-            'ikkdm': { title: 'KuKu动漫',url: 'http://comic.ikkdm.com/',describe: 'KuKu动漫,提供海量漫画,更新最快在线漫画欣赏,是动漫爱好者的交流互动平台',type: 'comic'},
+            'ikkdm': { title: 'KuKu动漫',url: 'https://manhua.kukudm.com/',describe: 'KuKu动漫,提供海量漫画,更新最快在线漫画欣赏,是动漫爱好者的交流互动平台',type: 'comic'},
             'fzdm': {  title: '风之动漫',url: 'https://www.fffdm.com/',describe: '在线漫画 日本动漫 火影忍者漫画 海贼王漫画',type: 'comic'},
             'manhuagui': { title: '漫画柜',url: 'https://www.manhuagui.com/',describe: '看漫画网站拥有海量的国产漫画、日韩漫画、欧美漫画等丰富漫画资源，免费为漫画迷提供及时的更新、清新的界面和舒适的体验,努力打造属于漫画迷的漫画乐园。 ',type: 'comic'},
             '77mh': { title: '新新漫画',url: 'https://www.77mh.xyz/',describe: '集齐漫画资源相当丰富，只有你想不到的，没有看不到的，每天更新百部漫画 ',type: 'comic'},
@@ -3403,7 +3407,7 @@ var ddlUnit = (function () {
             'cartoonmad': { title: '動漫狂',url: 'https://www.cartoonmad.com/',describe: '免費動畫漫畫分享社群 !  ',type: 'comic'},
 
             'book_sfacg': { title: 'SF轻小说',url: 'https://book.sfacg.com/',describe: 'SF轻小说网提供海量日本轻小说,国产轻小说,动漫小说,轻小说TXT下载,轻小说在线阅读',type: 'novel'},
-            'suixw':{ title: '随想轻小说',url: 'http://book.suixw.com/',describe: '日本轻小说,动漫小说网站,免费提供轻小说在线观看,TXT与电子书下载,并支持手机WAP访问',type: 'novel'},
+            'suixw':{ title: '随想轻小说',url: 'http://book.suixw.com/',describe: '日本轻小说,动漫小说网站,免费提供轻小说在线观看,TXT与电子书下载,并支持手机WAP访问',type: 'ignore'},
             'biquge':{ title: '笔趣阁',url: 'https://www.biquge.biz/',describe: '笔趣阁是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。',type: 'novel'},
             'dushuge':{ title: '读书阁',url: 'https://www.dushuge.org/',describe: '读书阁是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。',type: 'novel'},
             'sizhicn':{ title: '书趣阁',url: 'http://www.shuquge.com/',describe: '打眼新书神藏发布，来书趣阁看神藏最新章节。书趣阁_笔趣阁是笔趣阁的备用网站，网站已经全新改版，提供超快更新VIP小说免费首发，网站干净无任何广告，阅读环境好。',type: 'novel'},
@@ -4880,7 +4884,6 @@ var config = (function () {
 
 $(document).ready(function(){
     config.init();
-
     if(!base.isEmptyValue(chrome.runtime)) {
         chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
             switch (request.type) {
@@ -4967,8 +4970,10 @@ var ajRequest = (function () {
             ajaxPost({url: config.getApiUrl(url),data: data,success:success,error:error,complete: complete});
             return false;
         }
-        
-        chrome.extension.sendMessage({url: config.getApiUrl(url), data:data},function(result) {
+
+
+        chrome.runtime.sendMessage({url: config.getApiUrl(url), data:data},function(result) {
+            console.log('chrome.runtime.sendMessage result',result);
             if(!base.isEmptyValue(result)) {
                 success(result);
             } else {

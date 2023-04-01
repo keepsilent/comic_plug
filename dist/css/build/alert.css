@@ -1,0 +1,44 @@
+/* 提示柜 */
+#ddl-tips-box { position: fixed; top: 0; left: 0; display: none; width: 100%; height: 100%; color: #333; background: rgba(0,0,0,0.15); z-index: 9999999; }
+#ddl-tips-box div.alert-wrap { margin: 20% auto 0; width: 320px;  background: #FFF; border-radius: 8px; box-shadow: 1px 1px 10px rgba(0,0,0,0.15); }
+#ddl-tips-box div.alert-wrap h3 { padding: 15px; margin-bottom: 0; font-size: 16px; font-weight: normal; line-height: 1.5; word-break: break-all;}
+#ddl-tips-box div.alert-wrap p {  height: 45px; margin: 0 auto; border-top: solid 1px #dcdcdc; line-height: 45px; color: rgba(255,165,0,0.65);  font-size: 16px;  text-align: center; }
+#ddl-tips-box div.alert-wrap p a { display: block; width: 100%; height: auto; color: rgba(255,165,0,0.65); text-decoration: none; }
+#ddl-tips-box div.alert-wrap p a:hover,
+#ddl-tips-box div.alert-wrap p a:active,
+#ddl-tips-box div.alert-wrap p a:visited { color: rgba(255,165,0,0.65); }
+#ddl-tips-box div.alert-wrap p:hover { color: rgba(255,165,0,0.65); background: rgba(0,0,0,0.08); }
+#ddl-tips-box div.alert-wrap p:active { color: rgba(255,165,0,0.65); background: rgba(0,0,0,0.08); }
+#ddl-tips-box div.alert-wrap p:visited { color: rgba(255,165,0,0.65); }
+
+#ddl-tips-box div.confirm-wrap { margin: 20% auto 0; width: 320px; background: #FFF; border-radius: 8px; box-shadow: 1px 1px 10px rgba(0,0,0,0.15); }
+#ddl-tips-box div.confirm-wrap h3 { padding: 15px; margin-bottom: 0; font-size: 16px; line-height: 1.5; }
+#ddl-tips-box div.confirm-wrap table { width: 100%; }
+#ddl-tips-box div.confirm-wrap table tr td:first-child { border-right: solid 1px #dcdcdc; }
+#ddl-tips-box div.confirm-wrap table tr td { width: 50%; height: 45px; margin: 0 auto; border-top: solid 1px #dcdcdc; line-height: 45px; font-size: 16px;  text-align: center; }
+#ddl-tips-box div.confirm-wrap table tr td a { display: block; width: 100%; height: auto; color: #1f80e9; }
+#ddl-tips-box div.confirm-wrap table tr td a:hover { color: #1f80e9; background: rgba(0,0,0,0.08); }
+#ddl-tips-box div.confirm-wrap table tr td a:active { color: #1f80e9; background: rgba(0,0,0,0.08); }
+#ddl-tips-box div.confirm-wrap table tr td a:visited { color: #1f80e9; }
+
+#ddl-tips-box div.active-box { color: #FFF; }
+#ddl-tips-box div.active-box h2 { text-align: center; }
+#ddl-tips-box div.active-box p { text-align: center; line-height: 2;}
+#ddl-tips-box div.active-box p a { padding: 5px 10px;  color: #FFF; background: #79bf3a; border-radius: 5px;}
+#ddl-tips-box div.active-box p a.focus-bingo { margin-right: 3%;  background: #fa5858;  }
+#ddl-tips-box div.active-box p a,#ddl-tips-box div.active-box p a:hover,#ddl-tips-box div.active-box p a:active,#ddl-tips-box div.active-box p a:visited { color: #FFF; }
+
+
+#ddl-tips-box div.loading-wrap { margin: 20% auto 0;  width: 55px; height: 55px; padding: 10px; background: #FFF; border-radius: 8px; box-shadow: 1px 1px 10px rgba(0,0,0,0.15); overflow: hidden; }
+
+#ddl-floating-box { position: fixed; top: 0; left: 0; display: none; width: 100%; height: 100%; color: #333; background: rgba(0,0,0,0.15); z-index: 9999999; }
+#ddl-floating-box div.ddl-shortcut-edit-box { position: relative; margin: 20% auto 0; width: 930px; padding: 25px;  background: #FFF;  border-radius: 8px; box-shadow: 1px 1px 10px rgba(0,0,0,0.15); overflow: hidden; }
+#ddl-floating-box div.ddl-shortcut-edit-box div.ddl-scrollbar { margin-right: 345px; height: 400px; overflow-y: scroll; }
+#ddl-floating-box div.ddl-shortcut-edit-box div.ddl-scrollbar ul {  width: 615px;  overflow: hidden; }
+
+#ddl-floating-box div.ddl-play-wrap { position: relative; margin: 20% auto 0; width: 250px; padding: 25px;  background: #FFF;  border-radius: 8px; box-shadow: 1px 1px 10px rgba(0,0,0,0.15); overflow: hidden; }
+#ddl-floating-box div.ddl-play-wrap span.icon-close { position: absolute; right: 10px; top: 8px; color: rgba(0,0,0,0.45); font-size: 18px; font-weight: bolder; cursor: pointer; z-index: 2}
+#ddl-floating-box div.ddl-play-wrap span.icon-close:hover { color: rgba(0,0,0,0.75);}
+#ddl-floating-box div.ddl-play-wrap h3 { padding-bottom: 10px; text-align: center; color: #454545; font-size: 18px; font-weight: bolder; margin: 0; }
+#ddl-floating-box div.ddl-play-wrap p { text-align: center; color: #999; font-size: 14px; padding: 0; margin: 0;  }
+
