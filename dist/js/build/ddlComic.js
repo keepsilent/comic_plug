@@ -822,7 +822,7 @@ var ddlComic = (function () {
     var switchCatalog = function () {
         var load = $(options.catalogSwitch).attr('data-load');
         if(load == 0) {
-            tipsBox.alert('目录正在加载中,请稍候...');
+            tipsBox.alert('目录正在加载中,请稍候.2..');
             return false;
         }
         var status = $(options.catalogSwitch).attr('data-status');

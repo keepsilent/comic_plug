@@ -52,41 +52,126 @@ var ajRequest = (function () {
     }
 })();
 
-function queryParse(query){
 
-    let queryText = "";
-
-    for(let key in query){
-
-        queryText += key+'='+query[key]+'&';
-
-    }
-
-    return queryText.slice(0,-1);
-}
 
 chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
     console.log('chrome.runtime.onMessage.addListener',request,sender,sendResponse);
+    console.log('chrome.runtime.onMessage.addListener sendResponse',sendResponse);
    // ajRequest.post({ url:request.url, data:request.data, success: sendResponse});
     console.log('request.data',request.data);
     console.log('request.url',request.url);
     var data = request.data;
     var formData = new FormData();
     for(var i in data) {
-        console.log('i',i);
-        console.log('data[i]',data[i]);
         formData.append(i, data[i]);
     }
     console.log('formData',formData);
-    fetch(request.url,{
-        method : 'POST',
-        mode : 'cors',
-        body:formData,
-    })
-        .then(response => response.json())
-        .then(data => console.log(data);
-    sendResponse(data);
-        );
+
+    fetch('https://www.baidu.com/').then(res =>  console.log(res)).then(res => console.log(res))
+
+    new Promise(async (resolve, reject) => {
+
+        return fetch(request.url, {
+            method : 'POST',
+            mode : 'cors',
+            body: JSON.stringify(data),
+            headers: {
+                //'Content-Type': 'application/json'
+                "Content-Type": "application/json; charset=UTF-8"
+            }
+            // body : formData,
+            // headers: {
+            //     'user-agent': 'Mozilla/4.0 MDN Example',
+            //     'content-type': 'application/json'
+            // },
+            // headers: new Headers({
+            //     'Content-Type': 'application/json'
+            // })
+        })
+            .then(function (response) {
+                return resolve(response);
+                return response.json()
+            })
+            .then(function(response) {
+                console.log('chrome.runtime.onMessage.addListener sendResponse',sendResponse);
+                //sendResponse(response)
+                return resolve(response);
+            })
+            .catch(error => console.log(error));
+    }).then((response) => {
+        sendResponse(response);
+        console.log('xxx then',response);
+
+    }).catch(response => {
+        console.log('xxx catch');
+        sendResponse(response);
+    });
+
+
+    // var result = fetch(request.url, {
+    //     method : 'POST',
+    //     mode : 'cors',
+    //     body: JSON.stringify(data),
+    //     headers: {
+    //         //'Content-Type': 'application/json'
+    //         "Content-Type": "application/json; charset=UTF-8"
+    //     }
+    //     // body : formData,
+    //     // headers: {
+    //     //     'user-agent': 'Mozilla/4.0 MDN Example',
+    //     //     'content-type': 'application/json'
+    //     // },
+    //     // headers: new Headers({
+    //     //     'Content-Type': 'application/json'
+    //     // })
+    // })
+    //     .then(function (response) {
+    //         return response.json()
+    //     })
+    //     .then(function(response) {
+    //         console.log('chrome.runtime.onMessage.addListener sendResponse',sendResponse);
+    //         sendResponse(response)
+    //          return response;
+    //     })
+    //     .catch(error => console.log(error));
+
+    //     .then(res=>{
+    //
+    //     sendResponse(res);
+    //     console.log('fetch res2',res);
+    //    console.log('fetch res1',res.json());
+    //     return res;
+    // }).then(data=>{
+    //     console.log(data);
+    // }).catch(err=>console.log(err));
+
+
+    // console.log('result', {});
+    // sendResponse(result);
+
+    // }).then(function(res){
+    //
+    //     console.log('res',res);
+    //     if(res.ok){
+    //         res.json().then(function(data){
+    //             console.log('data',data);
+    //         })
+    //     }else{
+    //         console.log('请求失败');
+    //         //that.errorFunc();
+    //     }
+    // }, function(e){
+    //     console.log('请求失败');
+    //    // that.errorFunc();
+    // })
+
+    // fetch(request.url,{
+    //     method : 'POST',
+    //     mode : 'cors',
+    //     body:formData,
+    // })
+    //     .then(response => response.json())
+    //     .then(data => console.log(data));
 
 
 });
