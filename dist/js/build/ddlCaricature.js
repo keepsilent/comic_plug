@@ -782,7 +782,7 @@ var ddlCaricature = (function () {
             title: base.removeHTMLTag(_this.html())
         }
 
-        console.log('createChildCatalog',item);
+        //console.log('createChildCatalog',item);
         list.push(item);
         return list;
     }

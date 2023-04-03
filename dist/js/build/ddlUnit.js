@@ -98,7 +98,7 @@ var ddlUnit = (function () {
         var linkFormat = getPageLinkFormat(url,type);
         var link = linkFormat.replace(/%/i,1);
 
-        console.log('getPageLink',linkFormat,link);
+        //console.log('getPageLink',linkFormat,link);
         switch(type) {
             case 'ikkdm':
                 link = window.location.href.replace(/\?[a-zA-Z0-9=]+/i, '');
@@ -224,6 +224,13 @@ var ddlUnit = (function () {
             case 'manhuagui':
                 url = url.replace(/#p=[0-9]+/i,'');
                 break;
+
+            case '77mh':
+                url = url.replace(/#@page=[0-9]+/i,'');
+                break;
+            case 'sfacg':
+                url = url.replace(/#p=[0-9]+/i,'');
+                break;
             case 'manhuaniu':
                 url = url.replace(/p=[0-9]+/i,'p=%');
                 break;
@@ -241,7 +248,7 @@ var ddlUnit = (function () {
                 break;
         }
 
-        console.log('getPageLinkFormat',url);
+        //console.log('getPageLinkFormat',url);
         return url;
     }
 

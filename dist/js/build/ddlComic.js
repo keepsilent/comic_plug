@@ -65,7 +65,7 @@ var ddlComic = (function () {
             { regular: /^(http|https):\/\/www\.hhimm\.com\/cool[0-9]+\/[0-9]+.html?(.)+/, type: 'hhimm'},
             { regular: /^(http|https):\/\/www\.huhudm\.com\/(hu11|hu)[0-9]+\/[0-9]+.html?(.)+/, type: 'huhudm'},
 
-            { regular: /^(http|https):\/\/www\.cartoonmad\.cc\/comic\/[0-9]+.html/,'type': 'cartoonmad'},
+            { regular: /^(http|https):\/\/www\.cartoonmad\.com\/comic\/[0-9]+.html/,'type': 'cartoonmad'},
             { regular: /^(http|https):\/\/www\.manhuagui\.com\/comic\/[a-zA-Z0-9]+\/[0-9]+.html(#p=[0-9]+)?/, type: 'manhuagui'},
             { regular: /^(http|https):\/\/comic\.acgn\.cc\/view-[0-9]+.htm/, type: 'acgn'},
             { regular: /^(http|https):\/\/www\.77mh\.xyz\/[0-9]+\/[0-9]+\.html(#@page=[0-9]+)?/, type: '77mh'},
@@ -92,84 +92,20 @@ var ddlComic = (function () {
      * @method init
      */
     var init = function () {
-
-       var data = onWhiteList();
-       //console.log('data',data);
-        if(!data.status) { //是否白名单
-            console.log('not is white');
+        var page = onWhiteList();
+        if(!page.status) { //是否白名单
+            console.log('page is not comic++ white');
             return false;
         }
 
-        console.log('not is white');
-
-        cookie.get('setting',function (data) {
-            var setting = data.setting || {};
+        cookie.get('setting',function (page) {
+            var setting = page.setting || {};
             var space = setting.space || 25;
             var zoom = setting.zoom || 100;
             options.setting = { zoom: zoom, space: space};
         });
 
-        switch (data.type) {
-            case 'sfacg':
-            case 'hhxxee':
-            case 'gufengmh':
-            case 'pufei':
-            case 'imanhuaw':
-            case '52wuxing':
-            case 'u17':
-            case 'manhuagui':
-            case '77mh':
-            case 'manhuadb':
-            case 'manhuacat':
-                timingRun(data.type,10);
-                break;
-            default:
-                setTimeout(function () { run(); },10);
-                break;
-        }
-    }
-
-    /**
-     * 定时运行
-     * @method timingRun
-     * @param {String} type 类型
-     * @param {Number} time 时间
-     */
-    var timingRun = function (type,time) {
-        setTimeout(function () {
-            var str ="javascript:document.body.setAttribute('data-images', "+options.webImgaes[type].key+");";
-            switch (type) {
-                case 'gufengmh':
-                    str += "document.body.setAttribute('data-path', chapterPath);";
-                    break;
-                case 'hhxxee':
-                    str += "document.body.setAttribute('data-path', sDS);";
-                    break;
-                case 'u17':
-                    str += ddlUnit.setU17BodyPath();
-                    break;
-                case '77mh':
-                    str += "document.body.setAttribute('data-path', img_qianz);";
-                    break;
-                case 'manhuadb':
-                    str += "document.body.setAttribute('data-path', img_host);";
-                    str += "document.body.setAttribute('data-path-part', img_pre);";
-                    break;
-                case 'manhuacat':
-                    str += "document.body.setAttribute('data-path', asset_domain);";
-                    str += "document.body.setAttribute('data-path-part', img_pre);";
-                    break;
-            }
-            //console.log('timingRun',str);
-            window.location.href = "javascript:" + str;
-            if(base.isEmptyValue(document.body.getAttribute('data-images'))) { //防止数据加载失败
-                timingRun(type,time);
-                return false;
-            }
-            //console.log('base.isEmptyValue(document.body.getAttribute(\'data-images\')',document.body.getAttribute('data-images'));
-
-            setTimeout(function() { run(); }, time);
-        },time);
+        setTimeout(function () { run(); },100);
     }
 
     /**
@@ -302,7 +238,9 @@ var ddlComic = (function () {
             'hhimm': '#img2391',
             'huhudm': '#img2391',
             'fzdm': '#mhimg0 img',
-            '2nunu': '#cpimg'
+            '2nunu': '#cpimg',
+            'sfacg': '#curPic',
+            '77mh': '#dracga'
         }
 
         if(options.queue.count > 30) { //注消iframe加载失败，进入死循环
@@ -315,8 +253,11 @@ var ddlComic = (function () {
         }
 
         $(iframe).attr('src',data.url);
-        img = $(iframe).contents().find(config[data.type]).attr('src');
-        console.log('img',data.index,options.queue.count,img);
+        setTimeout(function () {
+            img = $(iframe).contents().find(config[data.type]).attr('src');
+            console.log('img2',data.index,options.queue.count,img);
+
+
         if(!base.isEmptyValue(img)) {
             loadImage(data.index,img);
 
@@ -356,6 +297,8 @@ var ddlComic = (function () {
                 loadQueueImage(data);
             },1000);
         }
+
+        }, 1000)
     }
 
 
@@ -560,33 +503,43 @@ var ddlComic = (function () {
             case 'u17':
             case '77mh':
             case 'manhuacat':
-                var images = document.body.getAttribute('data-images');
-                images = images.split(options.webImgaes[type].separator);
+                // var images = document.body.getAttribute('data-images');
+                // images = images.split(options.webImgaes[type].separator);
+                //
+                // if(type == 'hhxxee') {
+                //     options.webImgaes[type].url = ddlUnit.getPhxxeeImagePath(images[0]);
+                // }
+                // if(type == 'gufengmh') {
+                //     options.webImgaes[type].url = ddlUnit.getGufengmhImagePath(images[0],options.webImgaes[type].url);
+                // }
+                //
+                // if(type == '77mh') {
+                //     options.webImgaes[type].url = document.body.getAttribute('data-path');
+                // }
+                //
+                // if(type == 'manhuacat')  {
+                //     options.webImgaes[type].url = document.body.getAttribute('data-path') + document.body.getAttribute('data-path-part');
+                // }
+                //
+                // if(type == 'u17') {
+                //     images = ddlUnit.setU17Images();
+                // }
+                //
+                // for(var i = 0; i < total; i++) {
+                //     var index = parseInt(i) + parseInt(options.webImgaes[type].offset);
+                //     var url = options.webImgaes[type].url + images[index];
+                //     list[i] = { url: url, type: type, status: false, mode:'load'};
+                // }
 
-                if(type == 'hhxxee') {
-                    options.webImgaes[type].url = ddlUnit.getPhxxeeImagePath(images[0]);
-                }
-                if(type == 'gufengmh') {
-                    options.webImgaes[type].url = ddlUnit.getGufengmhImagePath(images[0],options.webImgaes[type].url);
-                }
 
-                if(type == '77mh') {
-                    options.webImgaes[type].url = document.body.getAttribute('data-path');
-                }
+                url = ddlUnit.getPageLinkFormat(url,type);
 
-                if(type == 'manhuacat')  {
-                    options.webImgaes[type].url = document.body.getAttribute('data-path') + document.body.getAttribute('data-path-part');
-                }
-
-                if(type == 'u17') {
-                    images = ddlUnit.setU17Images();
-                }
-
+                console.log('url',url);
                 for(var i = 0; i < total; i++) {
-                    var index = parseInt(i) + parseInt(options.webImgaes[type].offset);
-                    var url = options.webImgaes[type].url + images[index];
-                    list[i] = { url: url, type: type, status: false, mode:'load'};
+                    console.log('url+\'#p=\'+(i+1)',url+'#p='+(i+1));
+                    list.push({url: url+'#p='+(i+2), type: type, status: false, mode: 'iframe'});
                 }
+
                 break;
             case 'manhuadb':
                 var images = JSON.parse(document.body.getAttribute('data-images'));
