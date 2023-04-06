@@ -72,6 +72,7 @@ gulp.task('create', function () {
     gulp.src(['./reader.html']).pipe(gulp.dest(path)).pipe(notify('popup page create completed'));
     gulp.src(['./search.html']).pipe(gulp.dest(path)).pipe(notify('popup page create completed'));
     gulp.src(['./background.html']).pipe(gulp.dest(path)).pipe(notify('background page create completed'));
+    gulp.src(['./background.js']).pipe(gulp.dest(path)).pipe(notify('js create completed'));
     gulp.src(['./manifest.json']).pipe(gulp.dest(path)).pipe(notify('manifest json create completed'));
 });
 
