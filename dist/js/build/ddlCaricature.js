@@ -19,26 +19,11 @@ var ddlCaricature = (function () {
         config: {
             'dmzj': { title: '.head_wz a:eq(1)', chapter: '.head_title h2',  prev: '.wrap_last_mid span.pre a', next: '.wrap_last_mid span.next a', author: '.comic_deCon_liO li:eq(0)', status:'.comic_deCon_liO li:eq(1)', updated: '.zj_list_head_dat',intro:'.comic_deCon_d',catalog_box: '.zj_list div.tab-content:eq(0) .list_con_li li',cover: '.comic_i_img img'},
             'manhua_dmzj': { title: '.hotrmtexth1 a.redhotl', chapter: '.display_middle span.redhotl',  prev: '#prev_chapter', next: '#next_chapter', author: '.anim-main_list table tr:eq(2) a:first-child', status:'.anim-main_list table tr:eq(4) a:first-child', updated: '.anim-main_list table tr span.update2',intro:'.line_height_content',catalog_box: '.cartoon_online_border li',cover: '.anim_intro_ptext img'},
-            'sfacg': { title: '#AD_j1 span', chapter: '#AD_j1 span', prev: '.wrap .page_turning:eq(0) a:eq(1)', next: '.wrap .page_turning:eq(0) a:eq(4)', author: '.synopsises_font li:eq(1) a:eq(1)', status:'.synopsises_font li:eq(1)', updated: '.synopsises_font li:eq(1)',intro:'.synopsises_font li:eq(1)',catalog_box: '.comic_Serial_list a',cover: '.synopsises_font img'},
-            'fzdm': { title: '#weizhi a:eq(2)', chapter: '#pjax-container h1',  prev: '', next: '', author: '', status:'', updated: '',intro:'',catalog_box: '#content li',cover: ''},
-            'hhxxee': { title: '#spt1', chapter: '#spt2',  prev: '', next: '', author: '.en_info li:eq(0) a', status:'.en_info li:eq(3) b:eq(1)', updated: '.en_info li:eq(7)',intro:'#titleDiv h2',catalog_box: '.cVolList div',cover: '.img_div img'},
-            'u17': { title: '.comic_name', chapter: '#current_chapter_name',  prev: '', next: '', author: '.right div.info a:eq(0)', status:'.info span.comic_infor_status span.color_green:eq(0)', updated: '',intro:'#words',catalog_box: '#chapter li',cover: '#cover img'},
             'ikkdm': { title: 'title', chapter: '', prev: '', next: '', author: '', status:'', updated: '',intro:'#ComicInfo',catalog_box: '#comiclistn dd',cover: 'img:eq(3)'},
 
-            'hhimm': { title: 'title', chapter: '', prev: '', next: '', author: '#about_kit li:eq(1)', status:'#about_kit li:eq(2)', updated: '#about_kit li:eq(4)',intro:'#about_kit li:eq(7)',catalog_box: '.cVolList ul.cVolUl',cover: '#about_style img'},
-            'huhudm': { title: 'title', chapter: '', prev: '', next: '', author: '#about_kit li:eq(1)', status:'#about_kit li:eq(2)', updated: '#about_kit li:eq(4)',intro:'#about_kit li:eq(7)',catalog_box: '.cVolList ul.cVolUl',cover: '#about_style img'},
-
-            'manhuaniu': { title: '.title h1 a', chapter: '.title h2', prev: '.prevC', next: '.nextC', author: '#about_kit li:eq(1)', status:'#about_kit li:eq(2)', updated: '#about_kit li:eq(4)',intro:'#about_kit li:eq(7)',catalog_box: '.cVolList ul.cVolUl',cover: '#about_style img'},
-
-
             'acgn': { title: '#breadcrumb a:eq(2)', chapter: '#breadcrumb h1', prev: '.display_left a', next: '.display_right a', author: '.load01_r li:eq(0) span', status:'.load01_r li:eq(1) span', updated: '.load01_r li:eq(4) span',intro:'.gameshows dd:last-child',catalog_box: '#comic_chapter ul li',cover: '.gameshows img'},
-            'manhuagui': { title: '.title h1 a', chapter: '.title h2', prev: '.prevC', next: '.nextC', author: '#about_kit li:eq(1)', status:'#about_kit li:eq(2)', updated: '#about_kit li:eq(4)',intro:'#about_kit li:eq(7)',catalog_box: '.cVolList ul.cVolUl',cover: '#about_style img'},
             'cartoonmad': { title: 'table tr:eq(1) td:eq(0) table tr:eq(0) td:eq(1) a:eq(0)', chapter: 'table tr:eq(1) td:eq(0) table tr:eq(0) td:eq(1) a:eq(1)', prev: 'table tr:eq(1) td:eq(0) table tr:eq(0) td:eq(0) a:eq(0)', next: 'table tr:eq(1) td:eq(0) table tr:eq(0) td:eq(2) a:eq(0)', author: '', status:'', updated: '',intro:'',catalog_box: '',cover: ''},
-            '77mh': { title: 'h1 a', chapter: 'h1 a', prev: '#pnpage a:eq(0)', next: '#pnpage a:eq(1)', author: '.ar_list_coc li:eq(1) a', status:'.ar_list_coc li:eq(2) a', updated: '.ar_list_coc li:eq(4)',intro:'#det',catalog_box: '.ar_rlos_bor li',cover: '.ar_list_coc img'},
-            '2nunu': { title: '.path a:eq(2)', chapter: 'h1', prev: '.page a:eq(0)', next: '.page a:eq(1)', author: '.sy_k22  li:eq(2) a', status:'.sy_k22  li:eq(1) a', updated: '.sy_k22  li:eq(6) font',intro:'.sy_k22  li:last-child',catalog_box: '.zjlist ul.fx li',cover: '.sy_k1 img'},
-            'manhuadb': { title: '.breadcrumb li:eq(1) a', chapter: '.breadcrumb li:eq(2) a', prev: '.form-inline a.pre', next: '.form-inline a.next', author: '.creators  li a', status:'.tags  li:eq(0) a', updated: '',intro:'.comic_story',catalog_box: '.links-of-books li',cover: '.comic-cover img'},
-            'manhuacat': { title: '.links ol li:eq(1) a', chapter: '.links ol li:eq(2)', prev: '.form-inline a.pre', next: '.form-inline a.next', author: '.links ol li:eq(2) a', status:'.tags  li:eq(0) a', updated: '.comic-meta-data-table tr:last-child td.comic-titles',intro:'.comic_story',catalog_box: '.links-of-books li',cover: '.comic-cover img'},
-        }
+      }
     }
 
 
@@ -65,16 +50,6 @@ var ddlCaricature = (function () {
                 prev = prev ? home + prev : '';
                 next = next ? home + next : '';
                 break;
-            case 'sfacg':
-            case 'hhimm':
-            case 'huhudm':
-            case '77mh':
-                var str = base.removeHTMLTag(title);
-                var data = str.split(' ');
-                title = data[0];
-                title = base.trim(title.replace('↵',''));
-                chapter = data[1];
-                break;
             case 'ikkdm':
                 var str = base.removeHTMLTag(title);
                 var regular = /^(.*)\s(.*)/;
@@ -94,22 +69,10 @@ var ddlCaricature = (function () {
                 prev = prev ? url + prev : undefined;
                 next = next ? url + next : undefined;
                 break;
-            case 'manhuagui':
-                prev = 'javascript:SMH.prevC()';
-                next = 'javascript:SMH.nextC()';
-                break;
+
             case 'acgn':
                 chapter = base.trim(chapter.replace(title,''));
                 chapter = chapter.replace(/(【|】)?/gi,'');
-                break;
-            case '2nunu':
-                var data = base.trim(chapter.replace(title,'')).split(' ');
-                chapter = data[0];
-                break;
-            case 'manhuadb':
-            case 'manhuacat':
-                prev = 'javascript:goNumPage(\'pre\');';
-                next = 'javascript:goNumPage(\'next\');';
                 break;
         }
 
@@ -135,20 +98,13 @@ var ddlCaricature = (function () {
         var catalog = [],host = getHostUrl(key);
         console.log('host',host);
         switch (key) {
-            case 'u17':
             case 'dmzj':
-            case '2nunu':
-            case 'manhuacat':
                 $(id).contents().find(options.config[key]['catalog_box']).each(function () {
                     list = createChildCatalog($(this).find('a'), list);
                 });
                 catalog = makeUpCatalog(catalog,list);
                 break;
-            case 'fzdm':
-            case 'hhxxee':
             case 'ikkdm':
-            case '77mh':
-            case 'manhuadb':
                 $(id).contents().find(options.config[key]['catalog_box']).each(function () {
                     list = createChildCatalog($(this).find('a'), list, host);
                 });
@@ -179,26 +135,6 @@ var ddlCaricature = (function () {
                     list = createChildCatalog($(this).find('a'), list, host, '/');
                 });
                 catalog = makeUpCatalog(catalog,list);
-                break;
-            case 'sfacg':
-                $(id).contents().find(options.config[key]['catalog_box']).each(function () {
-                    list = createChildCatalog($(this), list, host);
-                });
-                catalog = makeUpCatalog(catalog,list);
-                break;
-            case 'hhimm':
-            case 'huhudm':
-                $(id).contents().find(options.config[key]['catalog_box']).each(function () {
-                    var list = [];
-                    var title = $(this).prev().html();
-                    title = title.replace('周刊杂志每周每月连载单集','');
-                    title = title.replace('漫画正片外的剧情之','');
-                    $(this).find('li').each(function () {
-                        list = createChildCatalog($(this).find('a'), list, host);
-                    });
-
-                    catalog = makeUpCatalog(catalog,list,title);
-                });
                 break;
         }
 
@@ -620,9 +556,7 @@ var ddlCaricature = (function () {
                 link = url.replace(/\#p=[0-9]+/i, '');
                 link = link.replace(/\/[0-9]+\.html/i, '/');
                 break;
-            case 'u17':
-                link = $('#readtop h1 a').attr('href');
-                break;
+
 
             case 'mangapanda':
             case 'mangareader':

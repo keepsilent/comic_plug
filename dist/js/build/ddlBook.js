@@ -26,7 +26,6 @@ var ddlBook = (function () {
             'guibuyu': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'biquge001': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
 
-
             '37zw': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'dingdiann': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'mcmssc': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
@@ -47,7 +46,7 @@ var ddlBook = (function () {
             'sbiquge': { title: '.path div.p a:eq(1)', chapter: '.content h1', catalog: '.path div.p a:eq(1)', content: '#content', prev: '.page_chapter ul li:eq(0) a', next: '.page_chapter ul li:eq(2) a', author: '#info p:eq(2)', status:'.small span:eq(2)', updated: '.small span:eq(4)',intro:'#intro',catalog_box: '.listmain dd',cover: '#fmimg img'},
 
             'cnoz': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'suixw': { title: '#linkleft a:eq(2)', chapter: '#title', catalog: '#footlink a:eq(1)', content: '#content', prev: '#footlink a:eq(0)', next: '#footlink a:eq(2)', author: '#info', update: '',intro:'',catalog_box: 'table tr td',cover: '#fmimg img'},
+
             'book_sfacg': { title: '.crumbs a:eq(2)', chapter: '.article-title', catalog: '#ctrlBtnArea a:eq(0)', content: '#ChapterBody', prev: '#pageBtnArea a:eq(3)', next: '#pageBtnArea a:eq(2)', author: '.author-name span', status:'.text-row span:eq(1)', updated: '.text-row span:eq(3)',intro:'.introduce',catalog_box: '.story-catalog',cover: '.summary-pic img',page:'.crumbs a:eq(2)'},
         }
     }
@@ -461,23 +460,7 @@ var ddlBook = (function () {
                 }
                 //console.log('catalog',catalog);
                 break;
-            case 'suixw':
-                var list = [], title = '',index = 0;
-                $(id).contents().find(options.config[key]['catalog_box']).each(function () {
-                    if($(this).hasClass('vcss')) {
-                        if(index != 0) {
-                            catalog = makeUpCatalog(catalog,list,title);
-                        }
-                        list = [];index ++;
-                        title = $(this).html();
-                        title = title.replace(/<!--.*-->/gi,'');
-                        title = filterStr(title);
-                    } else {
-                        list = createChildCatalog($(this).find('a'), list);
-                    }
-                });
-                catalog = makeUpCatalog(catalog,list,title);
-                break;
+
             case 'book_sfacg':
                 $(id).contents().find(options.config[key]['catalog_box']).each(function () {
                     var list = [];

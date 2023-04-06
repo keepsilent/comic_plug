@@ -63,7 +63,7 @@ var ddlNovel = (function () {
             { regular: /^(http|https):\/\/www\.biquduo\.com\/biquge\/[0-9_]+\/[a-zA-Z0-9]+\.html/, type: 'biquduo'},
 
             { regular: /^(http|https):\/\/www\.dushuge\.org\/html\/[0-9]+\/[0-9]+\/[0-9]+\.html/, type: 'dushuge'},
-            { regular: /^(http|https):\/\/www\.shuquge\.com\/txt\/[0-9]+\/[0-9]+\.html/, type: 'sizhicn'},
+            { regular: /^(http|https):\/\/www\.ishuquge\.org\/txt\/[0-9]+\/[0-9]+\.html/, type: 'sizhicn'},
             { regular: /^(http|https):\/\/www\.cnoz\.org\/[0-9_]+\/[0-9]+\.html/, type: 'cnoz'},
             { regular: /^(http|https):\/\/www\.173kt\.net\/book\/[0-9_]+\/[0-9]+\.html/, type: '173kt'},
             { regular: /^(http|https):\/\/www\.bqkan\.com\/[0-9_]+\/[0-9]+\.html/, type: 'bqkan'},

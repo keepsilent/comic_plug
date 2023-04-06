@@ -1,6 +1,6 @@
 {
   "name": "Comic++",
-  "version": "1.2.3",
+  "version": "2.0.0",
   "description": "重新定义漫画与小说网站的样式布局，改变你的阅读方式。",
   "icons": {
     "16": "dist/images/icon.png",

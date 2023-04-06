@@ -26,7 +26,6 @@ var ddlBook = (function () {
             'guibuyu': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'biquge001': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
 
-
             '37zw': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'dingdiann': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'mcmssc': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
@@ -47,7 +46,7 @@ var ddlBook = (function () {
             'sbiquge': { title: '.path div.p a:eq(1)', chapter: '.content h1', catalog: '.path div.p a:eq(1)', content: '#content', prev: '.page_chapter ul li:eq(0) a', next: '.page_chapter ul li:eq(2) a', author: '#info p:eq(2)', status:'.small span:eq(2)', updated: '.small span:eq(4)',intro:'#intro',catalog_box: '.listmain dd',cover: '#fmimg img'},
 
             'cnoz': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'suixw': { title: '#linkleft a:eq(2)', chapter: '#title', catalog: '#footlink a:eq(1)', content: '#content', prev: '#footlink a:eq(0)', next: '#footlink a:eq(2)', author: '#info', update: '',intro:'',catalog_box: 'table tr td',cover: '#fmimg img'},
+
             'book_sfacg': { title: '.crumbs a:eq(2)', chapter: '.article-title', catalog: '#ctrlBtnArea a:eq(0)', content: '#ChapterBody', prev: '#pageBtnArea a:eq(3)', next: '#pageBtnArea a:eq(2)', author: '.author-name span', status:'.text-row span:eq(1)', updated: '.text-row span:eq(3)',intro:'.introduce',catalog_box: '.story-catalog',cover: '.summary-pic img',page:'.crumbs a:eq(2)'},
         }
     }
@@ -461,23 +460,7 @@ var ddlBook = (function () {
                 }
                 //console.log('catalog',catalog);
                 break;
-            case 'suixw':
-                var list = [], title = '',index = 0;
-                $(id).contents().find(options.config[key]['catalog_box']).each(function () {
-                    if($(this).hasClass('vcss')) {
-                        if(index != 0) {
-                            catalog = makeUpCatalog(catalog,list,title);
-                        }
-                        list = [];index ++;
-                        title = $(this).html();
-                        title = title.replace(/<!--.*-->/gi,'');
-                        title = filterStr(title);
-                    } else {
-                        list = createChildCatalog($(this).find('a'), list);
-                    }
-                });
-                catalog = makeUpCatalog(catalog,list,title);
-                break;
+
             case 'book_sfacg':
                 $(id).contents().find(options.config[key]['catalog_box']).each(function () {
                     var list = [];
@@ -704,26 +687,11 @@ var ddlCaricature = (function () {
         config: {
             'dmzj': { title: '.head_wz a:eq(1)', chapter: '.head_title h2',  prev: '.wrap_last_mid span.pre a', next: '.wrap_last_mid span.next a', author: '.comic_deCon_liO li:eq(0)', status:'.comic_deCon_liO li:eq(1)', updated: '.zj_list_head_dat',intro:'.comic_deCon_d',catalog_box: '.zj_list div.tab-content:eq(0) .list_con_li li',cover: '.comic_i_img img'},
             'manhua_dmzj': { title: '.hotrmtexth1 a.redhotl', chapter: '.display_middle span.redhotl',  prev: '#prev_chapter', next: '#next_chapter', author: '.anim-main_list table tr:eq(2) a:first-child', status:'.anim-main_list table tr:eq(4) a:first-child', updated: '.anim-main_list table tr span.update2',intro:'.line_height_content',catalog_box: '.cartoon_online_border li',cover: '.anim_intro_ptext img'},
-            'sfacg': { title: '#AD_j1 span', chapter: '#AD_j1 span', prev: '.wrap .page_turning:eq(0) a:eq(1)', next: '.wrap .page_turning:eq(0) a:eq(4)', author: '.synopsises_font li:eq(1) a:eq(1)', status:'.synopsises_font li:eq(1)', updated: '.synopsises_font li:eq(1)',intro:'.synopsises_font li:eq(1)',catalog_box: '.comic_Serial_list a',cover: '.synopsises_font img'},
-            'fzdm': { title: '#weizhi a:eq(2)', chapter: '#pjax-container h1',  prev: '', next: '', author: '', status:'', updated: '',intro:'',catalog_box: '#content li',cover: ''},
-            'hhxxee': { title: '#spt1', chapter: '#spt2',  prev: '', next: '', author: '.en_info li:eq(0) a', status:'.en_info li:eq(3) b:eq(1)', updated: '.en_info li:eq(7)',intro:'#titleDiv h2',catalog_box: '.cVolList div',cover: '.img_div img'},
-            'u17': { title: '.comic_name', chapter: '#current_chapter_name',  prev: '', next: '', author: '.right div.info a:eq(0)', status:'.info span.comic_infor_status span.color_green:eq(0)', updated: '',intro:'#words',catalog_box: '#chapter li',cover: '#cover img'},
             'ikkdm': { title: 'title', chapter: '', prev: '', next: '', author: '', status:'', updated: '',intro:'#ComicInfo',catalog_box: '#comiclistn dd',cover: 'img:eq(3)'},
 
-            'hhimm': { title: 'title', chapter: '', prev: '', next: '', author: '#about_kit li:eq(1)', status:'#about_kit li:eq(2)', updated: '#about_kit li:eq(4)',intro:'#about_kit li:eq(7)',catalog_box: '.cVolList ul.cVolUl',cover: '#about_style img'},
-            'huhudm': { title: 'title', chapter: '', prev: '', next: '', author: '#about_kit li:eq(1)', status:'#about_kit li:eq(2)', updated: '#about_kit li:eq(4)',intro:'#about_kit li:eq(7)',catalog_box: '.cVolList ul.cVolUl',cover: '#about_style img'},
-
-            'manhuaniu': { title: '.title h1 a', chapter: '.title h2', prev: '.prevC', next: '.nextC', author: '#about_kit li:eq(1)', status:'#about_kit li:eq(2)', updated: '#about_kit li:eq(4)',intro:'#about_kit li:eq(7)',catalog_box: '.cVolList ul.cVolUl',cover: '#about_style img'},
-
-
             'acgn': { title: '#breadcrumb a:eq(2)', chapter: '#breadcrumb h1', prev: '.display_left a', next: '.display_right a', author: '.load01_r li:eq(0) span', status:'.load01_r li:eq(1) span', updated: '.load01_r li:eq(4) span',intro:'.gameshows dd:last-child',catalog_box: '#comic_chapter ul li',cover: '.gameshows img'},
-            'manhuagui': { title: '.title h1 a', chapter: '.title h2', prev: '.prevC', next: '.nextC', author: '#about_kit li:eq(1)', status:'#about_kit li:eq(2)', updated: '#about_kit li:eq(4)',intro:'#about_kit li:eq(7)',catalog_box: '.cVolList ul.cVolUl',cover: '#about_style img'},
             'cartoonmad': { title: 'table tr:eq(1) td:eq(0) table tr:eq(0) td:eq(1) a:eq(0)', chapter: 'table tr:eq(1) td:eq(0) table tr:eq(0) td:eq(1) a:eq(1)', prev: 'table tr:eq(1) td:eq(0) table tr:eq(0) td:eq(0) a:eq(0)', next: 'table tr:eq(1) td:eq(0) table tr:eq(0) td:eq(2) a:eq(0)', author: '', status:'', updated: '',intro:'',catalog_box: '',cover: ''},
-            '77mh': { title: 'h1 a', chapter: 'h1 a', prev: '#pnpage a:eq(0)', next: '#pnpage a:eq(1)', author: '.ar_list_coc li:eq(1) a', status:'.ar_list_coc li:eq(2) a', updated: '.ar_list_coc li:eq(4)',intro:'#det',catalog_box: '.ar_rlos_bor li',cover: '.ar_list_coc img'},
-            '2nunu': { title: '.path a:eq(2)', chapter: 'h1', prev: '.page a:eq(0)', next: '.page a:eq(1)', author: '.sy_k22  li:eq(2) a', status:'.sy_k22  li:eq(1) a', updated: '.sy_k22  li:eq(6) font',intro:'.sy_k22  li:last-child',catalog_box: '.zjlist ul.fx li',cover: '.sy_k1 img'},
-            'manhuadb': { title: '.breadcrumb li:eq(1) a', chapter: '.breadcrumb li:eq(2) a', prev: '.form-inline a.pre', next: '.form-inline a.next', author: '.creators  li a', status:'.tags  li:eq(0) a', updated: '',intro:'.comic_story',catalog_box: '.links-of-books li',cover: '.comic-cover img'},
-            'manhuacat': { title: '.links ol li:eq(1) a', chapter: '.links ol li:eq(2)', prev: '.form-inline a.pre', next: '.form-inline a.next', author: '.links ol li:eq(2) a', status:'.tags  li:eq(0) a', updated: '.comic-meta-data-table tr:last-child td.comic-titles',intro:'.comic_story',catalog_box: '.links-of-books li',cover: '.comic-cover img'},
-        }
+      }
     }
 
 
@@ -750,16 +718,6 @@ var ddlCaricature = (function () {
                 prev = prev ? home + prev : '';
                 next = next ? home + next : '';
                 break;
-            case 'sfacg':
-            case 'hhimm':
-            case 'huhudm':
-            case '77mh':
-                var str = base.removeHTMLTag(title);
-                var data = str.split(' ');
-                title = data[0];
-                title = base.trim(title.replace('↵',''));
-                chapter = data[1];
-                break;
             case 'ikkdm':
                 var str = base.removeHTMLTag(title);
                 var regular = /^(.*)\s(.*)/;
@@ -779,22 +737,10 @@ var ddlCaricature = (function () {
                 prev = prev ? url + prev : undefined;
                 next = next ? url + next : undefined;
                 break;
-            case 'manhuagui':
-                prev = 'javascript:SMH.prevC()';
-                next = 'javascript:SMH.nextC()';
-                break;
+
             case 'acgn':
                 chapter = base.trim(chapter.replace(title,''));
                 chapter = chapter.replace(/(【|】)?/gi,'');
-                break;
-            case '2nunu':
-                var data = base.trim(chapter.replace(title,'')).split(' ');
-                chapter = data[0];
-                break;
-            case 'manhuadb':
-            case 'manhuacat':
-                prev = 'javascript:goNumPage(\'pre\');';
-                next = 'javascript:goNumPage(\'next\');';
                 break;
         }
 
@@ -820,20 +766,13 @@ var ddlCaricature = (function () {
         var catalog = [],host = getHostUrl(key);
         console.log('host',host);
         switch (key) {
-            case 'u17':
             case 'dmzj':
-            case '2nunu':
-            case 'manhuacat':
                 $(id).contents().find(options.config[key]['catalog_box']).each(function () {
                     list = createChildCatalog($(this).find('a'), list);
                 });
                 catalog = makeUpCatalog(catalog,list);
                 break;
-            case 'fzdm':
-            case 'hhxxee':
             case 'ikkdm':
-            case '77mh':
-            case 'manhuadb':
                 $(id).contents().find(options.config[key]['catalog_box']).each(function () {
                     list = createChildCatalog($(this).find('a'), list, host);
                 });
@@ -864,26 +803,6 @@ var ddlCaricature = (function () {
                     list = createChildCatalog($(this).find('a'), list, host, '/');
                 });
                 catalog = makeUpCatalog(catalog,list);
-                break;
-            case 'sfacg':
-                $(id).contents().find(options.config[key]['catalog_box']).each(function () {
-                    list = createChildCatalog($(this), list, host);
-                });
-                catalog = makeUpCatalog(catalog,list);
-                break;
-            case 'hhimm':
-            case 'huhudm':
-                $(id).contents().find(options.config[key]['catalog_box']).each(function () {
-                    var list = [];
-                    var title = $(this).prev().html();
-                    title = title.replace('周刊杂志每周每月连载单集','');
-                    title = title.replace('漫画正片外的剧情之','');
-                    $(this).find('li').each(function () {
-                        list = createChildCatalog($(this).find('a'), list, host);
-                    });
-
-                    catalog = makeUpCatalog(catalog,list,title);
-                });
                 break;
         }
 
@@ -1305,9 +1224,7 @@ var ddlCaricature = (function () {
                 link = url.replace(/\#p=[0-9]+/i, '');
                 link = link.replace(/\/[0-9]+\.html/i, '/');
                 break;
-            case 'u17':
-                link = $('#readtop h1 a').attr('href');
-                break;
+
 
             case 'mangapanda':
             case 'mangareader':
@@ -1571,54 +1488,13 @@ var ddlComic = (function () {
         setting: { zoom: 100,space: 25},
         bodyScrollTop: 0,
         queue: { list: [], status: 1, count: 0},
-        webImgaes: {
-            'sfacg': { key: 'picAy', url: '', separator: ',', offset: 0},
-            'pufei': { key: 'photosr', url: 'http://res.img.220012.net/', separator: ',', offset: 1},
-            'imanhuaw': { key: 'qTcms_S_m_murl', url: '', separator: '$qingtiandy$', offset: 0},
-            'hhxxee': { key: 'arrFiles', url: 'http://99.94201314.net/dm08/', separator: ',', offset: 0},
-            '52wuxing': { key: 'qTcms_S_m_murl', url: 'http://www.52wuxing.net', separator: '$qingtiandy$', offset: 0},
-            'gufengmh': { key: 'chapterImages', url: 'https://res.gufengmh.com/', separator: ',', offset: 0},
-            'u17': { key: 'image_config.image_list[1].src', url: '', separator: ',', offset: 0},
-            'manhuagui': { key: 'SMH.utils.goPage(1)', url: '', separator: ',', offset: 0},
-            '77mh': { key: 'arr', url: '', separator: ',', offset: 0},
-            'manhuadb': { key: '$.base64.decode(img_data)', url: '', separator: ',', offset: 0},
-            'manhuacat': { key: 'img_data_arr', url: '', separator: ',', offset: 0},
-            //'manhuaniu': { key: 'SinTheme.jumpPage(1)', url: '', separator: ',', offset: 0}
-        },
         rules: [
-            { regular: /^(http|https):\/\/www\.dmzj[0-9]?\.com\/view\/[a-zA-Z0-9]+\/[0-9]+\.html(#@page=[0-9]+)?/, type: 'dmzj'},
+            { regular: /^(http|https):\/\/www\.[a-z0-9]?dmzj[0-9]?\.com\/view\/[a-zA-Z0-9]+\/[0-9]+\.html(#@page=[0-9]+)?/, type: 'dmzj'},
             { regular: /^(http|https):\/\/manhua\.[a-z0-9]?dmzj[0-9]?\.com\/[a-zA-Z0-9]+\/[0-9]+\.shtml(#@page=[0-9]+)?/, type: 'manhua_dmzj'},
-
             { regular: /^(http|https):\/\/[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.com\/comiclist\/[0-9]+\/[0-9]+\/[0-9]+\.htm$/, type: 'ikkdm'},
             { regular: /^(http|https):\/\/[a-zA-Z0-9]+\.[a-zA-Z0-9]+\.com\/comiclist\/[0-9]+\/[0-9]+\/[0-9]+\.htm[\?a-zA-Z0-9=]+$/, type: 'ikkdm'},
-
-            { regular: /^(http|https):\/\/manhua\.fffdm\.com\/[0-9]+\/[\_a-zA-Z0-9\.]+\/(index_[0-9]+.html+)?/, type: 'fzdm'},
-            { regular: /^(http|https):\/\/99\.hhxxee\.com\/comics\/[a-zA-Z0-9]+(\/?p=[0-9]+s=[0-9]+)?/, type: 'hhxxee'},
-            { regular: /^(http|https):\/\/manhua\.sfacg\.com\/mh\/[A-Za-z]+\/[0-9]+\/(#p=[0-9]+)?/, type: 'sfacg'},
-            { regular: /^(http|https):\/\/www\.u17\.com\/chapter\/[0-9]+.html/, type: 'u17'},
-
-            { regular: /^(http|https):\/\/www\.hhimm\.com\/cool[0-9]+\/[0-9]+.html?(.)+/, type: 'hhimm'},
-            { regular: /^(http|https):\/\/www\.huhudm\.com\/(hu11|hu)[0-9]+\/[0-9]+.html?(.)+/, type: 'huhudm'},
-
             { regular: /^(http|https):\/\/www\.cartoonmad\.com\/comic\/[0-9]+.html/,'type': 'cartoonmad'},
-            { regular: /^(http|https):\/\/www\.manhuagui\.com\/comic\/[a-zA-Z0-9]+\/[0-9]+.html(#p=[0-9]+)?/, type: 'manhuagui'},
             { regular: /^(http|https):\/\/comic\.acgn\.cc\/view-[0-9]+.htm/, type: 'acgn'},
-            { regular: /^(http|https):\/\/www\.77mh\.xyz\/[0-9]+\/[0-9]+\.html(#@page=[0-9]+)?/, type: '77mh'},
-            { regular: /^(http|https):\/\/www\.2nunu\.com\/look-[\%a-zA-Z0-9]+-[0-9]+-[0-9]+-[0-9]+\.html/, type: '2nunu'},
-            { regular: /^(http|https):\/\/www\.manhuadb\.com\/manhua\/[0-9]+\/[0-9]+_[0-9]+(_p[0-9]+)?\.html/, type: 'manhuadb'},
-            { regular: /^(http|https):\/\/www\.maofly\.com\/manga\/[0-9]+\/[0-9]+(_[0-9]+)?\.html/, type: 'manhuacat'},
-
-            // { regular: /^(http|https):\/\/e-hentai\.org\/s\/[a-zA-Z\-0-9]+\/[0-9]+\-[0-9]/, type: 'e_hentai'},
-            // { regular: /^(http|https):\/\/exhentai\.org\/s\/[a-zA-Z\-0-9]+\/[0-9]+\-[0-9]/, type: 'exhentai'}
-
-            //{ regular: /^(http|https):\/\/www\.manhuaniu\.com\/manhua\/[a-zA-Z0-9]+\/[0-9]+.html(\?p=[0-9]+)?/, type: 'manhuaniu'},
-            //{ regular: /^(http|https):\/\/www\.imanhuaw\.com\/imanhua\/[a-zA-Z0-9]+\/[0-9]+.html(\?p=[0-9]+)?/, type: 'imanhuaw'},
-            //{ regular: /^(http|https):\/\/www\.52wuxing\.net\/[a-zA-Z0-9]+\/[0-9]+\/[0-9]+.html(\?p=[0-9]+)?/, type: '52wuxing'},
-            //{ regular: /^(http|https):\/\/www\.fmhuaaa\.net\/manhua\/[0-9]+\/[0-9]+.html/, type: 'fmhuaaa'},
-
-            // { regular: /^(http|https):\/\/www\.mangapanda\.com\/[a-zA-Z\-0-9]+\/[0-9]+(\/[0-9]+)?/, type: 'mangapanda'},
-            // { regular: /^(http|https):\/\/www\.mangareader\.net\/[a-zA-Z\-0-9]+\/[0-9]+(\/[0-9]+)?/, type: 'mangareader'},
-            // { regular: /^(http|https):\/\/mangahere\.us\/[a-zA-Z\-0-9]+(#[0-9]+)?/, type: 'mangahere'},
         ]
     }
 
@@ -1629,7 +1505,7 @@ var ddlComic = (function () {
     var init = function () {
         var page = onWhiteList();
         if(!page.status) { //是否白名单
-            console.log('page is not comic++ white');
+            console.log('Comic++ not support this websit');
             return false;
         }
 
@@ -1726,11 +1602,7 @@ var ddlComic = (function () {
                 break;
         }
 
-        // if(options.list[index].type  == 'manhuagui') {
-        //     ddlUnit.getManhuaguiImageSrc(parseInt(index)+1);
-        //     loadImage(index,$('#mangaFile').attr('src'));
-        //     return false;
-        // }
+
     }
 
     /**
@@ -1747,10 +1619,6 @@ var ddlComic = (function () {
 
             if(result.data.next != '') {
                 createNextPreviewBox(index);
-                if(options.list[index].type == 'fzdm') {
-                    //console.log('loadComic','fzdm',index+1);
-                    loadComic(index+1)
-                }
             }
         },function (result) {
             options.list[index].status = false;
@@ -1768,14 +1636,7 @@ var ddlComic = (function () {
 
         var img = '', iframe = '#ddl-comic-iframe-image';
         var config = {
-            'manhuaniu': '#images img',
             'ikkdm': 'img:eq(0)',
-            'hhimm': '#img2391',
-            'huhudm': '#img2391',
-            'fzdm': '#mhimg0 img',
-            '2nunu': '#cpimg',
-            'sfacg': '#curPic',
-            '77mh': '#dracga'
         }
 
         if(options.queue.count > 30) { //注消iframe加载失败，进入死循环
@@ -1795,25 +1656,6 @@ var ddlComic = (function () {
 
         if(!base.isEmptyValue(img)) {
             loadImage(data.index,img);
-
-            switch (data.type) {
-                case 'fzdm':
-                    var pageTotal = 0, total = base.getDataLength(options.list);
-                    if( $(iframe).contents().find('.navigation a:last-child').hasClass('pure-button-primary')) {
-                        pageTotal = $(iframe).contents().find('.navigation a:last-child').prev().attr('href').replace(/(index_|\.html)/ig,'');
-                    } else {
-                        pageTotal = $(iframe).contents().find('.navigation a:last-child').attr('href').replace(/(index_|\.html)/ig,'');
-                    }
-
-                    if(pageTotal > total) {
-                        for(var i = total - 1; i < pageTotal; i++) {
-                            createNextPreviewBox(i);
-                        }
-                    }
-
-                    break;
-            }
-
             ddlUnit.destroyIframe(iframe);
 
             if(base.getDataLength(options.queue.list) != 0) {
@@ -1910,11 +1752,16 @@ var ddlComic = (function () {
      * @return {Nmber}
      */
     var getTotalPageNubmer = function (type) {
-        var total = 0;
         if(window.location.host === 'm.com') { //本地调式
             return options.testPage;
         }
+
+        var total = 0;
         switch (type) {
+            case 'dmzj':
+            case 'manhua_dmzj':
+                total = $('#page_select').children().length;
+                break;
             case 'ikkdm':
                 var html = $('body').html();
                 var reg = /共[0-9]+页/g;
@@ -1922,84 +1769,16 @@ var ddlComic = (function () {
                 var page = arr[0].match(/[0-9]+/g);
                 total = page[0];
                 break;
-            case 'dmzj':
-            case 'manhua_dmzj':
-                total = $('#page_select').children().length;
-                break;
-            case 'sfacg':
-                total = $('#pageSel option:last-child').val();
-                break;
-            case 'hhimm':
-            case 'huhudm':
-                total = $('#hdPageCount').val();
-                break;
-            case 'pufei':
-                total = $('#selectpage1').find('select option:last-child').val();
-                break;
-            case 'hhxxee':
-                total = $('#spPageCount').html();
-                break;
-            case 'fzdm':
-                total = $('.navigation a:last-child').attr('href').replace(/(index_|\.html)/ig,'');
-                break;
-            case 'imanhuaw':
-            case '52wuxing':
-                total = $('#k_pageSelect option:last-child').val();
-                break;
-            case 'manhuagui':
-                total = $('#pageSelect option:last-child').val();
-                break;
-            case 'manhuaniu':
-                total = base.removeHTMLTag($('#page').parent().html());
-                total = total.replace(/\(|\)/ig,'');
-                break;
-            case 'gufengmh':
-                var html = $('#page').parent().html();
-                html = html.replace(/\(<span id="page" class="curPage">[0-9]+<\/span>/g,'');
-                total = html.replace(')','');
-                break;
-            case 'fmhuaaa':
-                total = $('select option:last-child').html();
-                break;
-            case 'u17':
-               total = ddlUnit.getU17PageTotal();
-               break;
+
             case 'acgn':
                 total = $('#select1').children().length;
-                break;
-            case 'mangapanda':
-            case 'mangareader':
-                total = $('#pageMenu option:last-child').html();
-                break;
-            case 'mangahere':
-                total = $('#page_select').children().length;
-                break;
-            case 'e_hentai':
-            case 'exhentai':
-                total = $('.sn').find('div span:last-child').html();
                 break;
             case 'cartoonmad':
                 total = $('select').children().length - 1;
                 break;
-            case '77mh':
-                total = $('.selectTT').children().length;
-                break;
-            case '2nunu':
-                total = $('.page a:last-child').html();
-                break;
-            case 'manhuadb':
-                total = $('#page-selector').children().length;
-                break;
-            case 'manhuacat':
-                var images = document.body.getAttribute('data-images');
-                images = images.split(options.webImgaes[type].separator);
-                total = base.getDataLength(images);
-                break;
-
         }
 
         console.log('page total',total);
-
         return total;
     }
 
@@ -2016,9 +1795,19 @@ var ddlComic = (function () {
         switch (type) {
             case 'dmzj':
             case 'manhua_dmzj':
-            case 'mangahere':
                 $('#page_select option').each(function () {
                     list.push({ url: $(this).attr('value'), type: type, status: false, mode:'load'});
+                });
+                break;
+            case 'ikkdm':
+                url = ddlUnit.getPageLinkFormat(url,type);
+                for(var i = 0; i < total; i++) {
+                    list.push({url: url.replace(/%/i,i+1), type: type, status: false, mode: 'iframe'});
+                }
+                break;
+            case 'acgn':
+                $('#pic_list div.pic').each(function () {
+                    list.push({url: $(this).attr('_src'), type: type, status: false, mode: 'load'});
                 });
                 break;
             case 'cartoonmad':
@@ -2028,121 +1817,6 @@ var ddlComic = (function () {
                     var index = i + 1;
                     list.push({url: url + (Array(3).join(0) + index).slice(-3)+'&rimg=1', type: type, status: false, mode: 'load'});
                 }
-                break;
-            case 'sfacg':
-            case 'pufei':
-            case 'imanhuaw':
-            case 'hhxxee':
-            case '52wuxing':
-            case 'gufengmh':
-            case 'u17':
-            case '77mh':
-            case 'manhuacat':
-                // var images = document.body.getAttribute('data-images');
-                // images = images.split(options.webImgaes[type].separator);
-                //
-                // if(type == 'hhxxee') {
-                //     options.webImgaes[type].url = ddlUnit.getPhxxeeImagePath(images[0]);
-                // }
-                // if(type == 'gufengmh') {
-                //     options.webImgaes[type].url = ddlUnit.getGufengmhImagePath(images[0],options.webImgaes[type].url);
-                // }
-                //
-                // if(type == '77mh') {
-                //     options.webImgaes[type].url = document.body.getAttribute('data-path');
-                // }
-                //
-                // if(type == 'manhuacat')  {
-                //     options.webImgaes[type].url = document.body.getAttribute('data-path') + document.body.getAttribute('data-path-part');
-                // }
-                //
-                // if(type == 'u17') {
-                //     images = ddlUnit.setU17Images();
-                // }
-                //
-                // for(var i = 0; i < total; i++) {
-                //     var index = parseInt(i) + parseInt(options.webImgaes[type].offset);
-                //     var url = options.webImgaes[type].url + images[index];
-                //     list[i] = { url: url, type: type, status: false, mode:'load'};
-                // }
-
-
-                url = ddlUnit.getPageLinkFormat(url,type);
-
-                console.log('url',url);
-                for(var i = 0; i < total; i++) {
-                    console.log('url+\'#p=\'+(i+1)',url+'#p='+(i+1));
-                    list.push({url: url+'#p='+(i+2), type: type, status: false, mode: 'iframe'});
-                }
-
-                break;
-            case 'manhuadb':
-                var images = JSON.parse(document.body.getAttribute('data-images'));
-                options.webImgaes[type].url = document.body.getAttribute('data-path') + document.body.getAttribute('data-path-part');
-                for(var i = 0; i < total; i++) {
-                    var index = parseInt(i) + parseInt(options.webImgaes[type].offset);
-                    var url = options.webImgaes[type].url + images[index].img;
-                    list[i] = { url: url, type: type, status: false, mode:'load'};
-                }
-                break;
-            case 'mangapanda':
-            case 'mangareader':
-                url = ddlUnit.getPageLinkFormat(url,type);
-                for(var i = 0; i < total; i++) {
-                    list.push({url: url.replace(/%/i,i+1), type: type, status: false, mode: 'curl'});
-                }
-                break;
-            case 'fmhuaaa':
-                url = ddlUnit.getPageLinkFormat(url,type);
-                for(var i = 0; i < total; i++) {
-                    list.push({url: url.replace(/%/i,$('select option').eq(i).val()), type: type, status: false, mode: 'curl'});
-                }
-                break;
-            case 'manhuagui':
-                var url = ddlUnit.getManhuaguiImageSrc(1);
-
-                for(var i = 0; i < total; i++) {
-                    list.push({url: url, type: type, status: false, mode: 'load'});
-                }
-
-                ddlUnit.planGetManhuaguiImageSrc(1, total);
-                break;
-            case 'acgn':
-                $('#pic_list div.pic').each(function () {
-                    list.push({url: $(this).attr('_src'), type: type, status: false, mode: 'load'});
-                });
-                break;
-
-            case 'fzdm':
-                url = ddlUnit.getPageLinkFormat(url,type);
-                for(var i = 0; i < total; i++) {
-                    list.push({url: url.replace(/%/i, i), type: type, status: false, mode: 'iframe'});
-                }
-                break;
-            case 'ikkdm':
-            case 'hhimm':
-            case 'huhudm':
-            case 'manhuaniu':
-                url = ddlUnit.getPageLinkFormat(url,type);
-                for(var i = 0; i < total; i++) {
-                    list.push({url: url.replace(/%/i,i+1), type: type, status: false, mode: 'iframe'});
-                }
-                break;
-            case '2nunu':
-                url = ddlUnit.getPageLinkFormat(url,type);
-                for(var i = 0; i < total; i++) {
-                    list.push({url: url.replace(/%\.html/i,i+1)+'.html', type: type, status: false, mode: 'iframe'});
-                }
-                break;
-            case 'e_hentai':
-            case 'exhentai':
-                for(var i = 0; i < total; i++) {
-                    list[i] = { url: url.replace(/%/i,i+1), type: type, status: false, mode:'iframe'};
-                }
-
-                var url = $('.sn > a').attr('href');
-                ddlUnit.addIframe();
-                getHentaiImg(0,total,url);
                 break;
         }
 
@@ -2860,7 +2534,7 @@ var ddlNovel = (function () {
             { regular: /^(http|https):\/\/www\.biquduo\.com\/biquge\/[0-9_]+\/[a-zA-Z0-9]+\.html/, type: 'biquduo'},
 
             { regular: /^(http|https):\/\/www\.dushuge\.org\/html\/[0-9]+\/[0-9]+\/[0-9]+\.html/, type: 'dushuge'},
-            { regular: /^(http|https):\/\/www\.shuquge\.com\/txt\/[0-9]+\/[0-9]+\.html/, type: 'sizhicn'},
+            { regular: /^(http|https):\/\/www\.ishuquge\.org\/txt\/[0-9]+\/[0-9]+\.html/, type: 'sizhicn'},
             { regular: /^(http|https):\/\/www\.cnoz\.org\/[0-9_]+\/[0-9]+\.html/, type: 'cnoz'},
             { regular: /^(http|https):\/\/www\.173kt\.net\/book\/[0-9_]+\/[0-9]+\.html/, type: '173kt'},
             { regular: /^(http|https):\/\/www\.bqkan\.com\/[0-9_]+\/[0-9]+\.html/, type: 'bqkan'},
@@ -3348,47 +3022,15 @@ var ddlUnit = (function () {
     var options = {
         webList: {
             'manhua_dmzj': { title: '动漫之家',url: 'https://manhua.dmzj.com/',describe: '动漫之家为您提供最新更新的在线漫画、原创漫画、好看的漫画，最新最快的在线漫画更新、漫画大全尽在动漫之家漫画网。',type: 'comic'},
-            'u17': { title: '有妖气',url: 'http://www.u17.com/',describe: '中国唯一且最大的纯原创漫画网站，数千名中国原创漫画作者汇聚于此，在线连载最热门的全新漫画作品，为中国原创漫画作者提供最肥沃的漫画创作土壤。',type: 'comic'},
-            'sfacg': { title: 'SF动漫',url: 'https://manhua.sfacg.com/',describe: 'SF漫画提供海量漫画,更新最快在线漫画欣赏、无弹窗清爽阅读环境，老牌漫画网站一直陪伴在你身旁。',type: 'comic'},
             'ikkdm': { title: 'KuKu动漫',url: 'https://manhua.kukudm.com/',describe: 'KuKu动漫,提供海量漫画,更新最快在线漫画欣赏,是动漫爱好者的交流互动平台',type: 'comic'},
-            'fzdm': {  title: '风之动漫',url: 'https://www.fffdm.com/',describe: '在线漫画 日本动漫 火影忍者漫画 海贼王漫画',type: 'comic'},
-            'manhuagui': { title: '漫画柜',url: 'https://www.manhuagui.com/',describe: '看漫画网站拥有海量的国产漫画、日韩漫画、欧美漫画等丰富漫画资源，免费为漫画迷提供及时的更新、清新的界面和舒适的体验,努力打造属于漫画迷的漫画乐园。 ',type: 'comic'},
-            '77mh': { title: '新新漫画',url: 'https://www.77mh.xyz/',describe: '集齐漫画资源相当丰富，只有你想不到的，没有看不到的，每天更新百部漫画 ',type: 'comic'},
-            'manhuadb': { title: '漫画DB',url: 'https://www.manhuadb.com/',describe: '漫画DB是全网最专业的日本漫画大全资料库。网站上的所有漫画均可免费在线看，同时每部漫画都有丰富的资料，包括登场人物、用语、设定、改编作品及创作幕后等深层的内容。 ',type: 'comic'},
-            'manhuacat': { title: '漫画猫',url: 'https://www.maofly.com/',describe: '漫画猫为您提供海量的优质漫画作品在线阅读观看，其中不乏一些优质的日本漫画大作，剧情题材各异、画风自成一派、内容自然有趣，可谓是舒适而又愉悦的漫画体验。 ',type: 'comic'},
-            'acgn': { title: '動漫戲說',url: 'https://comic.acgn.cc/',describe: '提供免費在線漫畫、線上漫畫(Comic) ~ 線上觀看! ',type: 'comic'},
             'cartoonmad': { title: '動漫狂',url: 'https://www.cartoonmad.com/',describe: '免費動畫漫畫分享社群 !  ',type: 'comic'},
-
+            'acgn': { title: '動漫戲說',url: 'https://comic.acgn.cc/',describe: '提供免費在線漫畫、線上漫畫(Comic) ~ 線上觀看! ',type: 'comic'},
             'book_sfacg': { title: 'SF轻小说',url: 'https://book.sfacg.com/',describe: 'SF轻小说网提供海量日本轻小说,国产轻小说,动漫小说,轻小说TXT下载,轻小说在线阅读',type: 'novel'},
-            'suixw':{ title: '随想轻小说',url: 'http://book.suixw.com/',describe: '日本轻小说,动漫小说网站,免费提供轻小说在线观看,TXT与电子书下载,并支持手机WAP访问',type: 'ignore'},
-            'biquge':{ title: '笔趣阁',url: 'https://www.biquge.biz/',describe: '笔趣阁是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。',type: 'novel'},
+            '173kt':{ title: '笔趣阁',url: 'http://www.173kt.net/',describe: '笔趣阁是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。',type: 'novel'},
             'dushuge':{ title: '读书阁',url: 'https://www.dushuge.org/',describe: '读书阁是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。',type: 'novel'},
-            'sizhicn':{ title: '书趣阁',url: 'http://www.shuquge.com/',describe: '打眼新书神藏发布，来书趣阁看神藏最新章节。书趣阁_笔趣阁是笔趣阁的备用网站，网站已经全新改版，提供超快更新VIP小说免费首发，网站干净无任何广告，阅读环境好。',type: 'novel'},
-            '233txt':{ title: '天籁小说网',url: 'https://xs.23sk.com/',describe: '天籁小说网是广大书友最值得收藏的网络小说阅读网，网站收录了当前最火热的网络小说，免费提供高质量的小说最新章节，是广大网络小说爱好者必备的小说阅读网。',type: 'novel'},
 
             'dmzj': { title: '动漫之家',url: 'https://www.dmzj.com/',describe: '',type: 'ignore'},
-            'hhxxee': { title: '九九漫畫',url: 'http://99.hhxxee.com/',describe: '',type: 'ignore'},
-            'hhimm': { title: '汗汗酷漫',url: 'http://www.hhimm.com/',describe: '',type: 'ignore'},
-            'huhudm': { title: '虎虎漫画',url: 'http://www.huhudm.com',describe: '',type: 'ignore'},
-
-            'biquge_lu':{ title: '笔趣阁',url: 'https://www.biquge.lu/',describe: '',type: 'ignore'},
-            'biquge_tv':{ title: '笔趣阁',url: 'http://www.biquge.tv/',describe: '',type: 'ignore'},
-            'bswtan':{ title: '笔趣阁',url: 'http://www.bswtan.com',describe: '',type: 'ignore'},
-            'loubiqu':{ title: '笔趣阁',url: 'http://www.loubiqu.com/',describe: '',type: 'ignore'},
-            'cnoz':{ title: '笔趣阁',url: 'https://www.cnoz.org/',describe: '',type: 'ignore'},
-            '173kt':{ title: '笔趣阁',url: 'http://www.173kt.net/',describe: '',type: 'ignore'},
-            'bqkan':{ title: '笔趣看',url: 'https://www.bqkan.com/',describe: '',type: 'ignore'},
-            '37zw':{ title: '三七中文网',url: 'https://www.37zw.la/',describe: '',type: 'ignore'},
-            'biduo':{ title: '笔趣阁',url: 'https://www.biduo.cc/',describe: '',type: 'ignore'},
-            'dingdiann':{ title: '顶点小说',url: 'https://www.dingdiann.net/',describe: '',type: 'ignore'},
-            'zwdu':{ title: '八一中文网',url: 'https://www.zwdu.com/',describe: '',type: 'ignore'},
-            'paoshuzw':{ title: '新笔趣阁',url: 'http://www.paoshuzw.com/',describe: '',type: 'ignore'},
-            'xsbooktxt':{ title: '顶点小说',url: 'https://www.xsbooktxt.com/',describe: '',type: 'ignore'},
-
             'biqugewu':{ title: '笔趣阁',url: 'http://www.biqugewu.net/',describe: '',type: 'ignore'},
-            'mcmssc':{ title: '笔趣阁',url: 'https://www.biquge.biz/',describe: '',type: 'ignore'},
-            'biqugetv':{ title: '笔趣阁',url: 'https://www.biqugetv.com/',describe: '',type: 'ignore'},
-            'biqugg':{ title: '笔趣阁',url: 'https://www.biqugg.com/',describe: '',type: 'ignore'},
             'biquge001':{ title: '笔趣阁',url: 'http://www.biquge001.com/',describe: '',type: 'ignore'}
         }
     }
@@ -3406,12 +3048,6 @@ var ddlUnit = (function () {
         switch (type) {
             case 'ikkdm':
             case 'manhua_dmzj':
-            case 'mangapanda':
-            case 'mangareader':
-            case 'gufengmh':
-            case 'fmhuaaa':
-            case 'u17':
-            case 'manhuadb':
                 for(var i in catalog) {
                     arr.push(catalog[i]);
                 }
@@ -3445,59 +3081,10 @@ var ddlUnit = (function () {
                 break;
             case 'dmzj':
             case 'manhua_dmzj':
-            case '77mh':
                 link = link.replace(/#@page=[0-9]+/i, '');
-                break;
-            case 'fzdm':
-                link = link.replace(/index_[0-9]+.html/i, '');
-                break;
-            case 'sfacg':
-            case 'gufengmh':
-            case 'manhuagui':
-                link = link.replace(/#p=[0-9]+/i, '');
-                break;
-            case 'manhuaniu':
-            case 'imanhuaw':
-            case '52wuxing':
-                link = link.replace(/\?\/p=[0-9]+/i, '');
-                break;
-            case '2nunu':
-                link = link.replace(/[0-9]+\.html/i, '1.html');
-                break;
-            case 'mangapanda':
-            case 'mangareader':
-                link = link.substr(0,link.lastIndexOf('/'));
-                break;
-            case 'hhimm':
-            case 'huhudm':
-                link = link.substr(0, link.lastIndexOf('?')) + '?s='+base.getQueryString('s');
-                break;
-            case 'pufei':
-                link = link.replace(/\?\/page=[0-9]+/i, '');
-                break;
-            case 'hhxxee':
-                if(link.lastIndexOf('?') != -1) {
-                    link = link.substr(0, link.lastIndexOf('?'));
-                }
-                break;
-            case 'fmhuaaa':
-                link = link.replace(/[0-9]+.html/i, '');
-                link += $('select option:first-child').val()+'.html';
-                break;
-            case 'u17':
-                link = link.replace(/#image_id=[0-9]+/i, '');
-                break;
-            case 'mangahere':
-                link = link.replace(/#[0-9]+/i, '');
                 break;
             case 'acgn':
                 link = link.replace(/#show/i, '');
-                break;
-            case 'manhuadb':
-                link = link.replace(/_p[0-9]+/i, '');
-                break;
-            case 'manhuacat':
-                link = link.replace(/_[0-9]+/i, '');
                 break;
         }
 
@@ -3525,65 +3112,8 @@ var ddlUnit = (function () {
                     url += 'index_%.html';
                 }
                 break;
-            case 'mangapanda':
-                var reg = /^https:\/\/www\.mangapanda\.com\/[a-zA-Z\-0-9]+\/[0-9]+\/[0-9]+/i;
-                if(reg.test(url)) {
-                    url = url.substr(0,url.lastIndexOf('/'));
-                    url += '/%';
-                } else {
-                    url += '/%';
-                }
-                break;
-            case 'mangareader':
-                var reg = /^https:\/\/www\.mangareader\.com\/[a-zA-Z\-0-9]+\/[0-9]+\/[0-9]+/i;
-                if(reg.test(url)) {
-                    url = url.substr(0,url.lastIndexOf('/'));
-                    url += '/%';
-                } else {
-                    url += '/%';
-                }
-                break;
-            case 'hhimm':
-            case 'huhudm':
-            case 'fmhuaaa':
-                url = url.replace(/\/[0-9]+\.html/i,'/%.html');
-                break;
-            case 'pufei':
-                url = url.replace(/page=[0-9]+/i,'/page=%');
-                break;
-            case 'imanhuaw':
-            case 'hhxxee':
-            case '52wuxing':
-            case 'gufengmh':
-                url = url.replace(/p=[0-9]+/i,'/p=%');
-                break;
-            case 'mangahere':
-                url = url.replace(/#[0-9]+/i,'#%');
-                break;
-            case 'manhuagui':
-                url = url.replace(/#p=[0-9]+/i,'');
-                break;
-
-            case '77mh':
-                url = url.replace(/#@page=[0-9]+/i,'');
-                break;
-            case 'sfacg':
-                url = url.replace(/#p=[0-9]+/i,'');
-                break;
-            case 'manhuaniu':
-                url = url.replace(/p=[0-9]+/i,'p=%');
-                break;
-            case '2nunu':
-                url = url.replace(/[0-9]+\.html/i,'%.html');
-                break;
             case 'cartoonmad':
                 url = url.replace(/[0-9]+\.html/i,'');
-                break;
-            case 'manhuadb':
-                url = url.replace(/_p[0-9]+\.html/i,'.html');
-                break;
-            case 'manhuacat':
-                url = url.replace(/_[0-9]+\.html/i,'.html');
                 break;
         }
 
@@ -3682,88 +3212,6 @@ var ddlUnit = (function () {
     }
 
     /**
-     * 获得九九漫画图片路径
-     * @member getPhxxeeImagePath
-     * @param {String} img
-     * @return {String}
-     */
-    var getPhxxeeImagePath = function (img) {
-        var s = base.getQueryString("s");
-        var paths = $('body').attr('data-path');
-        paths = paths.split('|');
-
-        if(!base.isEmptyValue(s)) {
-            return paths[parseInt(s) - 1];
-        }
-
-        if($('#hdCuD') != null) {
-            s = $('#hdCuD').val();
-            if(!base.isEmptyValue(s)) {
-                return paths[parseInt(s) - 1];
-            }
-        }
-
-        img = img.substr(1,img.length);
-        img = img.substr(0,img.indexOf('/'));
-        img = img.replace(/[a-zA-z\-]+/i,'');
-        return  paths[parseInt(img) - 1 ];
-    }
-
-    /**
-     * 获取古风漫画图片路径
-     * @method getGufengmhImagePath
-     * @param {String} domain 域名
-     * @return {String}
-     */
-    var getGufengmhImagePath = function (img,domain) {
-        var path = document.body.getAttribute('data-path');
-
-        if(img.indexOf('http') == -1) {
-            return domain+path;
-        }
-
-        return '';
-    }
-
-    /**
-     * 获得有妖气页面总数
-     * @method getU17PageTotal
-     */
-    var getU17PageTotal = function () {
-        var html = $('.pagenum').html();
-        return html.replace(/<em>[0-9]+<\/em>\//g,'');
-    }
-
-    /**
-     * 设置有妖气Body路径
-     * @method setU17BodyPath
-     */
-    var setU17BodyPath = function () {
-        var str = '';
-        var total = getU17PageTotal();
-        for(var i = 1; i<= total; i++) {
-            str += "document.body.setAttribute('data-path"+i+"', image_config.image_list["+i+"].src);";
-        }
-
-        return str;
-    }
-
-    /**
-     * 获取有妖气图片
-     * @method setU17Images
-     */
-    var setU17Images = function () {
-        var arr = [];
-        var total = getU17PageTotal();
-        for(var i = 1; i<= total; i++) {
-           arr[parseInt(i)-1] = base64.decode($('body').attr('data-path'+i));
-        }
-
-        return arr;
-    }
-
-
-    /**
      * 添加Iframe
      * @method addIframe
      */
@@ -3853,11 +3301,8 @@ var ddlUnit = (function () {
     return {
         hhimmUnsuan: hhimmUnsuan,
         getElementPagePosition: getElementPagePosition,
-        getGufengmhImagePath: getGufengmhImagePath,
-        getPhxxeeImagePath: getPhxxeeImagePath,
-        getU17PageTotal: getU17PageTotal,
-        setU17BodyPath: setU17BodyPath,
-        setU17Images: setU17Images,
+
+
 
 
         getPageLink: getPageLink,
