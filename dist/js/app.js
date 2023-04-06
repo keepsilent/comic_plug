@@ -10,43 +10,10 @@ var ddlBook = (function () {
         iframe: '#ddl-novel-iframe',
         favorBtn: '#ddl-comic-favor-btn',
         config: {
-            'biquge': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)', status:'#info p:eq(1)', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'biquduo': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)', status:'#info p:eq(1)', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'dushuge': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)', status:'#info p:eq(1)', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            '23txt': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)', status:'#info p:eq(1)', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'zwdu': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)',status:'#info p:eq(1)', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'biqugetv': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)',status:'#info p:eq(1)', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-
-            'loubiqu': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'paoshuzw': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)',status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             '173kt': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            '2952': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)',status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list li',cover: '#fmimg img'},
-            'biqugewu': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'paoshu8': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'guibuyu': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'biquge001': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-
-            '37zw': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'dingdiann': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'mcmssc': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'hehuamei': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)',status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'ddxs': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)',status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-
-            'bswtan': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem2 a:eq(1)', next: '.bottem2 a:eq(3)', author: '#info p:eq(0)',status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-
-            'xsbooktxt': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-            'biqugg': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)',status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-
-            'biquge_tv': { title: '.con_top a:eq(1)', chapter: '.bookname h1', catalog: '.con_top a:eq(1)', content: '#content', prev: '.bottem1 a:eq(2)', next: '.bottem1 a:eq(4)', author: '#info p:eq(0)',status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-
-            'sizhicn': { title: '.path div.p a:eq(1)', chapter: '.content h1', catalog: '.path div.p a:eq(1)', content: '#content', prev: '.page_chapter ul li:eq(0) a', next: '.page_chapter ul li:eq(2) a', author: '.small span:eq(0)',status:'.small span:eq(2)', updated: '.small span:eq(4)',intro:'.intro',catalog_box: '.listmain dd',cover: '.cover img'},
-            'biqulu_net': { title: '.path div.p a:eq(1)', chapter: '.content h1', catalog: '.path div.p a:eq(1)', content: '#content', prev: '.page_chapter ul li:eq(0) a', next: '.page_chapter ul li:eq(2) a', author: '.small span:eq(0)', status:'.small span:eq(2)', updated: '.small span:eq(4)',intro:'.intro',catalog_box: '.listmain dd',cover: '.cover img'},
-            'bqkan': { title: '.path div.p a:eq(1)', chapter: '.content h1', catalog: '.path div.p a:eq(1)', content: '#content', prev: '.page_chapter ul li:eq(0) a', next: '.page_chapter ul li:eq(2) a', author: '.small span:eq(0)',status:'.small span:eq(2)', updated: '.small span:eq(4)',intro:'.intro',catalog_box: '.listmain dd',cover: '.cover img'},
-
-            'sbiquge': { title: '.path div.p a:eq(1)', chapter: '.content h1', catalog: '.path div.p a:eq(1)', content: '#content', prev: '.page_chapter ul li:eq(0) a', next: '.page_chapter ul li:eq(2) a', author: '#info p:eq(2)', status:'.small span:eq(2)', updated: '.small span:eq(4)',intro:'#intro',catalog_box: '.listmain dd',cover: '#fmimg img'},
-
-            'cnoz': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(0)', next: '.bottem1 a:eq(2)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
-
+            'biqugewu': { title: '.con_top a:eq(2)', chapter: '.bookname h1', catalog: '.con_top a:eq(2)', content: '#content', prev: '.bottem1 a:eq(1)', next: '.bottem1 a:eq(3)', author: '#info p:eq(0)', status:'', updated: '#info p:eq(2)',intro:'#intro',catalog_box: '#list dd',cover: '#fmimg img'},
             'book_sfacg': { title: '.crumbs a:eq(2)', chapter: '.article-title', catalog: '#ctrlBtnArea a:eq(0)', content: '#ChapterBody', prev: '#pageBtnArea a:eq(3)', next: '#pageBtnArea a:eq(2)', author: '.author-name span', status:'.text-row span:eq(1)', updated: '.text-row span:eq(3)',intro:'.introduce',catalog_box: '.story-catalog',cover: '.summary-pic img',page:'.crumbs a:eq(2)'},
         }
     }
@@ -386,24 +353,9 @@ var ddlBook = (function () {
         var id = '#ddl-novel-iframe';
         var catalog = [],host = getHostUrl(key);
         switch (key) {
-            case 'biquge':
-            case 'bswtan':
-            case 'paoshuzw':
-            case 'loubiqu':
-            case 'hehuamei':
-            case 'biquduo':
             case 'dushuge':
-            case '2952':
-            case 'sbiquge':
-            case '37zw':
-            case '23txt':
-            case 'zwdu':
-            case 'dingdiann':
-            case 'paoshu8':
-            case 'guibuyu':
-            case 'biqugetv':
-            case 'biqugg':
             case 'biquge001':
+            case 'biqugewu':
 
                 var list = [];
                 // console.log('getCatalog');
@@ -413,15 +365,7 @@ var ddlBook = (function () {
                 });
                 catalog = makeUpCatalog(catalog,list);
                 break;
-            case 'biquge_tv':
-            case 'biqulu_net':
-            case 'xsbooktxt':
-            case 'sizhicn':
-            case 'cnoz':
             case '173kt':
-            case 'bqkan':
-            case 'biqugewu':
-            case 'mcmssc':
                 var catalog_box = base.ltrim(options.config[key]['catalog_box'].replace(' dd',''));
                 var html = $(id).contents().find(catalog_box).html();
                 if(base.isEmptyValue(html)) {
@@ -2521,43 +2465,11 @@ var ddlNovel = (function () {
         bodyScrollTop: 0,
         rules: [
             { regular: /^http:\/\/m.com\/comic\/$/, type: 'moe'},
-            { regular: /^(http|https):\/\/www\.biquge\.biz\/[0-9_]+\/[0-9]+\.html/, type: 'biquge'},
-            { regular: /^(http|https):\/\/www\.bswtan\.com\/[0-9_]+\/[0-9]+\/[0-9]+\.html/, type: 'bswtan'},
-            { regular: /^(http|https):\/\/www\.paoshuzw\.com\/[0-9_]+\/[0-9]+\/[0-9]+\.html/, type: 'paoshuzw'},
-            { regular: /^(http|https):\/\/www\.xsbooktxt\.com\/[0-9_]+\/[0-9]+\.html/, type: 'xsbooktxt'},
-            { regular: /^(http|https):\/\/www\.loubiqu\.com\/[0-9_]+\/[0-9]+\.html/, type: 'loubiqu'},
-            { regular: /^(http|https):\/\/www\.hehuamei\.com\/[0-9_]+\/[0-9_]+\/[0-9]+\.html/, type: 'hehuamei'},
-           // { regular: /^(http|https):\/\/www\.booktxt\.net\/[0-9_]+\/[0-9]+\.html/, type: 'booktxt_net'},
-            { regular: /^(http|https):\/\/www\.biqulu\.net\/book\/[0-9_]+\/[0-9]+\.html/, type: 'biqulu_net'},
-            //{ regular: /^(http|https):\/\/www\.biquge\.tw\/[0-9_]+\/[0-9]+\.html/, type: 'biquge_tw'},
-            { regular: /^(http|https):\/\/www\.biquge\.tv\/[0-9_]+\/[0-9]+\.html/, type: 'biquge_tv'},
-            { regular: /^(http|https):\/\/www\.biquduo\.com\/biquge\/[0-9_]+\/[a-zA-Z0-9]+\.html/, type: 'biquduo'},
-
-            { regular: /^(http|https):\/\/www\.dushuge\.org\/html\/[0-9]+\/[0-9]+\/[0-9]+\.html/, type: 'dushuge'},
-            { regular: /^(http|https):\/\/www\.ishuquge\.org\/txt\/[0-9]+\/[0-9]+\.html/, type: 'sizhicn'},
-            { regular: /^(http|https):\/\/www\.cnoz\.org\/[0-9_]+\/[0-9]+\.html/, type: 'cnoz'},
             { regular: /^(http|https):\/\/www\.173kt\.net\/book\/[0-9_]+\/[0-9]+\.html/, type: '173kt'},
-            { regular: /^(http|https):\/\/www\.bqkan\.com\/[0-9_]+\/[0-9]+\.html/, type: 'bqkan'},
-            { regular: /^(http|https):\/\/www\.2952\.cc\/b\/[0-9_]+\/[0-9_]+\/[0-9]+\.html/, type: '2952'},
-            { regular: /^(http|https):\/\/www\.sbiquge\.com\/[0-9_]+\/[0-9]+\.html/, type: 'sbiquge'},
-            { regular: /^(http|https):\/\/www\.37zw\.[a-z]+\/[0-9]+\/[0-9]+\/[0-9]+\.html/, type: '37zw'},
-            { regular: /^(http|https):\/\/xs\.23sk\.com\/files\/article\/html\/[0-9]+\/[0-9]+\/[0-9]+\.html/, type: '23txt'},
-            { regular: /^(http|https):\/\/www\.zwdu\.com\/book\/[0-9_]+\/[0-9]+\.html/, type: 'zwdu'},
-            { regular: /^(http|https):\/\/www\.dingdiann\.net\/[a-z0-9]+\/[0-9]+\.html/, type: 'dingdiann'},
-            { regular: /^(http|https):\/\/www\.mcmssc\.com\/[0-9_]+\/[0-9]+\.html/, type: 'mcmssc'},
-            //{ regular: /^(http|https):\/\/www\.tianxiabachang\.cn\/[0-9_]+\/[0-9]+\.html/, type: 'tianxiabachang'},
-            //{ regular: /^(http|https):\/\/www\.biqiuge\.com\/book\/[0-9]+\/[0-9]+\.html/, type: 'biqiuge'},
-            //{ regular: /^(http|https):\/\/www\.yqxs\.cc\/html\/[0-9]+\/[0-9]+\/[0-9]+\.html/, type: 'yqxs'},
+            { regular: /^(http|https):\/\/www\.dushuge\.org\/html\/[0-9]+\/[0-9]+\/[0-9]+\.html/, type: 'dushuge'},
             { regular: /^(http|https):\/\/www\.biqugewu\.net\/[0-9_]+\/[0-9]+\.html/, type: 'biqugewu'},
-
-            { regular: /^(http|https):\/\/www\.paoshu8\.com\/[0-9_]+\/[0-9]+\.html/, type: 'paoshu8'},
-            { regular: /^(http|https):\/\/www\.guibuyu\.org\/[0-9_]+\/[0-9]+\.html/, type: 'guibuyu'},
-            { regular: /^(http|https):\/\/book\.suixw\.com\/modules\/article\/reader\.php\?aid=[0-9]+&cid=[0-9]+/, type: 'suixw'},
-            { regular: /^(http|https):\/\/book\.sfacg\.com\/Novel\/[0-9_]+\/[0-9]+\/[0-9]+/, type: 'book_sfacg'},
-            { regular: /^(http|https):\/\/www\.biqugetv\.com\/[0-9_]+\/[0-9]+\.html/, type: 'biqugetv'},
-            { regular: /^(http|https):\/\/www\.biqugg\.com\/xs\/[0-9]+\/[0-9]+\.html/, type: 'biqugg'},
             { regular: /^(http|https):\/\/www\.biquge001\.com\/Book\/[0-9]+\/[0-9]+\/[0-9]+\.html/, type: 'biquge001'},
-            { regular: /^(http|https):\/\/www\.ddxs\.cc\/ddxs\/[0-9]+\/[0-9]+\.html/, type: 'ddxs'},
+            { regular: /^(http|https):\/\/book\.sfacg\.com\/Novel\/[0-9_]+\/[0-9]+\/[0-9]+/, type: 'book_sfacg'},
         ]
     }
 
@@ -2576,15 +2488,7 @@ var ddlNovel = (function () {
         }
 
         setNovelSetting();
-        options.type = data.type;
-        switch (data.type) {
-            case 'manhuagui':
-                timingRun(data.type,10);
-                break;
-            default:
-                setTimeout(function () { run(); },10);
-                break;
-        }
+        setTimeout(function () { run(); },10);
     }
 
     /**
@@ -2603,35 +2507,6 @@ var ddlNovel = (function () {
         });
     }
 
-
-    /**
-     * 定时运行
-     * @method timingRun
-     * @param {String} type 类型
-     * @param {Number} time 时间
-     */
-    var timingRun = function (type,time) {
-        setTimeout(function () {
-            var str ="javascript:document.body.setAttribute('data-images', "+options.webImgaes[type].key+");";
-            switch (type) {
-                case 'gufengmh':
-                    str += "document.body.setAttribute('data-path', chapterPath);";
-                    break;
-                case 'u17':
-                    str += ddlUnit.setU17BodyPath();
-                    break;
-            }
-
-            window.location.href = "javascript:" + str;
-            if(base.isEmptyValue(document.body.getAttribute('data-images'))) { //防止数据加载失败
-                timingRun(type,time);
-                return false;
-            }
-            //console.log('base.isEmptyValue(document.body.getAttribute(\'data-images\')',document.body.getAttribute('data-images'));
-
-            setTimeout(function() { run(); }, time);
-        },time);
-    }
 
     /**
      * 运行程序
